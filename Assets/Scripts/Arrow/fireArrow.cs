@@ -5,21 +5,27 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
 
 	public float timeBetweenBullets = 0.15f;
-	public GameObject projectile;
+	public GameObject arrow;
 
-	float nextBullet;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	float nextArrow;
 
 	void Awake () {
-		nextBullet = 0f;
+		nextArrow = 0f;
+	}
+
+	void Update () {
+		HeavyController myPlayer = transform.root.GetComponent<HeavyController> ();
+
+		if (Input.GetAxisRaw ("Fire1") > 0 && nextArrow < Time.time) {
+			nextArrow = Time.time + timeBetweenBullets;
+			Vector3 rot;
+			if (myPlayer.GetFacing () == -1f) {
+				rot = new Vector3 (0, -90, 0);
+			} else {
+				rot = new Vector3 (0, 90, 0);
+			}
+
+			Instantiate (arrow, transform.position, Quaternion.Euler (rot));
+		}
 	}
 }

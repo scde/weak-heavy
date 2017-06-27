@@ -10,7 +10,7 @@ public class ShootArrow : MonoBehaviour {
 	Ray shootRay;
 	RaycastHit shootHit;
 	int shootableMask;
-	LineRenderer gunLine;
+	LineRenderer aimLine;
 	
 
 	// Use this for initialization
@@ -25,16 +25,16 @@ public class ShootArrow : MonoBehaviour {
 
 	void Awake () {
 		shootableMask = LayerMask.GetMask("Shootable");
-		gunLine = GetComponent<LineRenderer>();
+		aimLine = GetComponent<LineRenderer>();
 
 		shootRay.origin = transform.position;
 		shootRay.direction = transform.forward;
-		gunLine.SetPosition(0,transform.position);
+		aimLine.SetPosition(0,transform.position);
 
 		if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)){
-			gunLine.SetPosition(1, shootHit.point);
+			aimLine.SetPosition(1, shootHit.point);
 		} else {
-			gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+			aimLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
 		}
 	}
 }
