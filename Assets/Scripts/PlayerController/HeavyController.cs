@@ -22,7 +22,7 @@ public class HeavyController: PlayerController {
 
 	void Start () {
 		myRB = GetComponent<Rigidbody>();
-		myAnim = GetComponenty<Animator>();
+		myAnim = GetComponent<Animator>();
 		facingRight = true;
 	}
 
@@ -41,7 +41,7 @@ public class HeavyController: PlayerController {
 			myRB.AddForce (new Vector3 (0, jumpHeigth, 0));
 		}
 
-		groundCollisions = Physics.OverLapSphere (groundCheck.position, groundCheckRadius, groundLayer);
+		groundCollisions = Physics.OverlapSphere (groundCheck.position, groundCheckRadius, groundLayer);
 		if (groundCollisions.Length > 0) {
 			grounded = true;
 		} else {
@@ -50,7 +50,7 @@ public class HeavyController: PlayerController {
 
 		myAnim.SetBool ("grounded", grounded);
 
-		float move = Intput.GetAxis("Horizontal");
+		float move = Input.GetAxis("Horizontal");
 		myAnim.SetFloat("Speed", Mathf.Abs(move));
 
 		float sneaking = Input.GetAxisRaw ("Fire3");
@@ -58,7 +58,7 @@ public class HeavyController: PlayerController {
 
 		float shooting = Input.GetAxis ("Fire1");
 		myAnim.SetFloat ("shooting", shooting);
-		if ((sneaking > 0 || firing > 0) && grounded) {
+		if ((sneaking > 0 || shooting > 0) && grounded) {
 			myRB.velocity = new Vector3 (move * walkSpeed, myRB.velocity.y, 0);
 		} else {
 			myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
@@ -77,9 +77,9 @@ public class HeavyController: PlayerController {
 
 	void Flip(){
 		facingRight = !facingRight;
-		Vector3 theScale = transform.localeScale;
+		Vector3 theScale = transform.localScale;
 		theScale.z = -1;
-		transform.localeScale = theScale;
+		transform.localScale = theScale;
 	}
 
 	public float GetFacing(){
