@@ -4,10 +4,10 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:864b80602bf1472bd05c2f89e8d89c0f:27ec1871c2cf9ce8d6ce118d86844152:741995ef6b2123393ca67b14cc854ebc$
+# $TexturePacker:SmartUpdate:b112dbe016f5b4aaef70738320acb05d:60b5473e009b205321fa8d34e5ba84ae:b0990b5ef46c87b18d7f1816c3dc9024$
 #
 :format=40300
-:texture=bear_startWalking.png
+:texture=bear_startWalking_steel.png
 :size=512x1024
 :pivotpoints=enabled
 :borders=disabled

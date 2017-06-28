@@ -4,10 +4,10 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:08248de0030a447123665f32c883df53:279160e09c5ee575762dd09ae625c340:24dc971a0f289734408af1efd27cce69$
+# $TexturePacker:SmartUpdate:5414d700c8f7707e1c2edc8846ee6d7d:c8fd80ce487c21ed6420368429fb90be:3b759392746532c20c6df6af60f27593$
 #
 :format=40300
-:texture=bear_jump.png
+:texture=bear_jump_steel.png
 :size=512x1024
 :pivotpoints=enabled
 :borders=disabled
