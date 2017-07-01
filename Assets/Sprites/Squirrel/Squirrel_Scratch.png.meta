@@ -1,39 +1,69 @@
 fileFormatVersion: 2
-guid: 3f91436d8db264a428dc60efa4397201
-timeCreated: 1498895590
+guid: fe74f473a861046afa15c6dafab36338
+timeCreated: 1498902203
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Squirrel-Scratch_0
-    21300002: Squirrel-Scratch_1
-    21300004: Squirrel-Scratch_2
-    21300006: Squirrel-Scratch_3
-    21300008: Squirrel-Scratch_4
-    21300010: Squirrel-Scratch_5
-    21300012: Squirrel-Scratch_6
-    21300014: Squirrel-Scratch_7
-    21300016: Squirrel-Scratch_8
-    21300018: Squirrel-Scratch_9
-    21300020: Squirrel-Scratch_10
-    21300022: Squirrel-Scratch_11
-    21300024: Squirrel-Scratch_12
-    21300026: Squirrel-Scratch_13
-    21300028: Squirrel-Scratch_14
-    21300030: Squirrel-Scratch_15
-    21300032: Squirrel-Scratch_16
-    21300034: Squirrel-Scratch_17
-    21300036: Squirrel-Scratch_18
-    21300038: Squirrel-Scratch_19
-    21300040: Squirrel-Scratch_20
-    21300042: Squirrel-Scratch_21
-    21300044: Squirrel-Scratch_22
-    21300046: Squirrel-Scratch_23
-    21300048: Squirrel-Scratch_24
-    21300050: Squirrel-Scratch_25
-    21300052: Squirrel-Scratch_26
-    21300054: Squirrel-Scratch_27
-    21300056: Squirrel-Scratch_28
-    21300058: Squirrel-Scratch_29
+    21300000: Squirrel_Scratch_GlueIt_0
+    21300002: Squirrel_Scratch_GlueIt_1
+    21300004: Squirrel_Scratch_GlueIt_2
+    21300006: Squirrel_Scratch_GlueIt_3
+    21300008: Squirrel_Scratch_GlueIt_4
+    21300010: Squirrel_Scratch_GlueIt_5
+    21300012: Squirrel_Scratch_GlueIt_6
+    21300014: Squirrel_Scratch_GlueIt_7
+    21300016: Squirrel_Scratch_GlueIt_8
+    21300018: Squirrel_Scratch_GlueIt_9
+    21300020: Squirrel_Scratch_GlueIt_10
+    21300022: Squirrel_Scratch_GlueIt_11
+    21300024: Squirrel_Scratch_GlueIt_12
+    21300026: Squirrel_Scratch_GlueIt_13
+    21300028: Squirrel_Scratch_GlueIt_14
+    21300030: Squirrel_Scratch_GlueIt_15
+    21300032: Squirrel_Scratch_GlueIt_16
+    21300034: Squirrel_Scratch_GlueIt_17
+    21300036: Squirrel_Scratch_GlueIt_18
+    21300038: Squirrel_Scratch_GlueIt_19
+    21300040: Squirrel_Scratch_GlueIt_20
+    21300042: Squirrel_Scratch_GlueIt_21
+    21300044: Squirrel_Scratch_GlueIt_22
+    21300046: Squirrel_Scratch_GlueIt_23
+    21300048: Squirrel_Scratch_GlueIt_24
+    21300050: Squirrel_Scratch_GlueIt_25
+    21300052: Squirrel_Scratch_GlueIt_26
+    21300054: Squirrel_Scratch_GlueIt_27
+    21300056: Squirrel_Scratch_GlueIt_28
+    21300058: Squirrel_Scratch_GlueIt_29
+    21300060: Squirrel_Scratch_0
+    21300062: Squirrel_Scratch_1
+    21300064: Squirrel_Scratch_2
+    21300066: Squirrel_Scratch_3
+    21300068: Squirrel_Scratch_4
+    21300070: Squirrel_Scratch_5
+    21300072: Squirrel_Scratch_6
+    21300074: Squirrel_Scratch_7
+    21300076: Squirrel_Scratch_8
+    21300078: Squirrel_Scratch_9
+    21300080: Squirrel_Scratch_10
+    21300082: Squirrel_Scratch_11
+    21300084: Squirrel_Scratch_12
+    21300086: Squirrel_Scratch_13
+    21300088: Squirrel_Scratch_14
+    21300090: Squirrel_Scratch_15
+    21300092: Squirrel_Scratch_16
+    21300094: Squirrel_Scratch_17
+    21300096: Squirrel_Scratch_18
+    21300098: Squirrel_Scratch_19
+    21300100: Squirrel_Scratch_20
+    21300102: Squirrel_Scratch_21
+    21300104: Squirrel_Scratch_22
+    21300106: Squirrel_Scratch_23
+    21300108: Squirrel_Scratch_24
+    21300110: Squirrel_Scratch_25
+    21300112: Squirrel_Scratch_26
+    21300114: Squirrel_Scratch_27
+    21300116: Squirrel_Scratch_28
+    21300118: Squirrel_Scratch_29
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -70,7 +100,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -140,390 +170,390 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Squirrel-Scratch_0
+      name: Squirrel_Scratch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 885
-        width: 79
-        height: 139
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_1
+      name: Squirrel_Scratch_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 885
-        width: 79
-        height: 139
+        x: 155
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_2
+      name: Squirrel_Scratch_2
       rect:
         serializedVersion: 2
-        x: 158
-        y: 885
-        width: 79
-        height: 139
+        x: 310
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_3
+      name: Squirrel_Scratch_3
       rect:
         serializedVersion: 2
-        x: 237
-        y: 885
-        width: 79
-        height: 139
+        x: 465
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_4
+      name: Squirrel_Scratch_4
       rect:
         serializedVersion: 2
-        x: 316
-        y: 885
-        width: 79
-        height: 139
+        x: 620
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_5
+      name: Squirrel_Scratch_5
       rect:
         serializedVersion: 2
-        x: 395
-        y: 885
-        width: 79
-        height: 139
+        x: 775
+        y: 1100
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_7
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_8
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_9
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_10
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_11
-      rect:
-        serializedVersion: 2
-        x: 395
-        y: 746
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_12
+      name: Squirrel_Scratch_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 607
-        width: 79
-        height: 139
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_13
+      name: Squirrel_Scratch_7
       rect:
         serializedVersion: 2
-        x: 79
-        y: 607
-        width: 79
-        height: 139
+        x: 155
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_14
+      name: Squirrel_Scratch_8
       rect:
         serializedVersion: 2
-        x: 158
-        y: 607
-        width: 79
-        height: 139
+        x: 310
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_15
+      name: Squirrel_Scratch_9
       rect:
         serializedVersion: 2
-        x: 237
-        y: 607
-        width: 79
-        height: 139
+        x: 465
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_16
+      name: Squirrel_Scratch_10
       rect:
         serializedVersion: 2
-        x: 316
-        y: 607
-        width: 79
-        height: 139
+        x: 620
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_17
+      name: Squirrel_Scratch_11
       rect:
         serializedVersion: 2
-        x: 395
-        y: 607
-        width: 79
-        height: 139
+        x: 775
+        y: 825
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_18
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_19
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_20
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_21
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_22
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_23
-      rect:
-        serializedVersion: 2
-        x: 395
-        y: 468
-        width: 79
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Squirrel-Scratch_24
+      name: Squirrel_Scratch_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 329
-        width: 79
-        height: 139
+        y: 550
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_25
+      name: Squirrel_Scratch_13
       rect:
         serializedVersion: 2
-        x: 79
-        y: 329
-        width: 79
-        height: 139
+        x: 155
+        y: 550
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_26
+      name: Squirrel_Scratch_14
       rect:
         serializedVersion: 2
-        x: 158
-        y: 329
-        width: 79
-        height: 139
+        x: 310
+        y: 550
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_27
+      name: Squirrel_Scratch_15
       rect:
         serializedVersion: 2
-        x: 237
-        y: 329
-        width: 79
-        height: 139
+        x: 465
+        y: 550
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_28
+      name: Squirrel_Scratch_16
       rect:
         serializedVersion: 2
-        x: 316
-        y: 329
-        width: 79
-        height: 139
+        x: 620
+        y: 550
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Squirrel-Scratch_29
+      name: Squirrel_Scratch_17
       rect:
         serializedVersion: 2
-        x: 395
-        y: 329
-        width: 79
-        height: 139
+        x: 775
+        y: 550
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_19
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_20
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_21
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_22
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_23
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 275
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_25
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_26
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_27
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 0
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_28
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 0
+        width: 155
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Scratch_29
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 0
+        width: 155
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
