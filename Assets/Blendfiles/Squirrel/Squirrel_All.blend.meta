@@ -131,6 +131,7 @@ ModelImporter:
     7400008: Squirrel_Walk
     7400010: Squirrel_WallJump
     7400012: Squirrel_WallJump_off
+    7400014: Idle
     9500000: //RootNode
     13700000: Plane_003
     13700002: Untitled
