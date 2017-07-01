@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsWall;
 
     private Rigidbody2D rb2d;
+    private Animator anim;
+    private SpriteRenderer rend;
     private bool facingRight = true;
     private bool grounded = false;
     private bool onWall = false;
@@ -28,12 +30,15 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
 	// FixedUpdate is called once per pyhsics timestep
     void FixedUpdate () {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        onWall = Physics2D.OverlapCircle(wallCheck.position, wallRadius, whatIsWall);
+		anim.SetBool("Grounded", grounded);
+		onWall = Physics2D.OverlapCircle(wallCheck.position, wallRadius, whatIsWall);
         if (grounded) {
             doubleJump = false;
         }
@@ -43,15 +48,20 @@ public class PlayerController : MonoBehaviour {
         }
 
         float move = Input.GetAxis("Horizontal_P" + (player + 1));
+		anim.SetFloat("HorizontalSpeed", Mathf.Abs(move));
 
-        rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
+		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
         //rb2d.AddForce(new Vector2(move * maxSpeed, rb2d.velocity.y));
 
         // Flips character (sprites) into moving direction
-        if (move > 0 && !facingRight)
-            Flip();
-        else if (move < 0 && facingRight)
-            Flip();
+        if (move > 0 && !facingRight) {
+            facingRight = !facingRight;
+			rend.flipX = false;
+		}
+        else if (move < 0 && facingRight) {
+			facingRight = !facingRight;
+			rend.flipX = true;
+		}
     }
 
     // Update is called once per frame
@@ -81,13 +91,5 @@ public class PlayerController : MonoBehaviour {
             //rb2d.velocity = new Vector2(maxSpeed * -1, rb2d.velocity.y);
         //else
             //rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
-    }
-
-    void Flip () {
-        facingRight = !facingRight;
-        Vector3 currentLocalScale = transform.localScale;
-
-        currentLocalScale.x *= -1;
-        transform.localScale = currentLocalScale;
     }
 }

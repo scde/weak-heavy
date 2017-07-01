@@ -1,9 +1,39 @@
 fileFormatVersion: 2
 guid: 2254ade398d051c4a96f8ef843328e6b
-timeCreated: 1498906506
+timeCreated: 1498919486
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Squirrel_Jump_0
+    21300002: Squirrel_Jump_1
+    21300004: Squirrel_Jump_2
+    21300006: Squirrel_Jump_3
+    21300008: Squirrel_Jump_4
+    21300010: Squirrel_Jump_5
+    21300012: Squirrel_Jump_6
+    21300014: Squirrel_Jump_7
+    21300016: Squirrel_Jump_8
+    21300018: Squirrel_Jump_9
+    21300020: Squirrel_Jump_10
+    21300022: Squirrel_Jump_11
+    21300024: Squirrel_Jump_12
+    21300026: Squirrel_Jump_13
+    21300028: Squirrel_Jump_14
+    21300030: Squirrel_Jump_15
+    21300032: Squirrel_Jump_16
+    21300034: Squirrel_Jump_17
+    21300036: Squirrel_Jump_18
+    21300038: Squirrel_Jump_19
+    21300040: Squirrel_Jump_20
+    21300042: Squirrel_Jump_21
+    21300044: Squirrel_Jump_22
+    21300046: Squirrel_Jump_23
+    21300048: Squirrel_Jump_24
+    21300050: Squirrel_Jump_25
+    21300052: Squirrel_Jump_26
+    21300054: Squirrel_Jump_27
+    21300056: Squirrel_Jump_28
+    21300058: Squirrel_Jump_29
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +88,447 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Squirrel_Jump_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_5
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1100
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_8
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_9
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_10
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_11
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 825
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_13
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_14
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_15
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_16
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_17
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 550
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_19
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_20
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_21
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_22
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_23
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 275
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_25
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_26
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_27
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_28
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Squirrel_Jump_29
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 0
+        width: 275
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
