@@ -59,6 +59,7 @@ ModelImporter:
     100102: Untitled
     100104: Upper_Arm_L
     100106: Upper_Arm_R
+    100108: Cylinder
     400000: Armature
     400002: Base
     400004: Body
@@ -113,17 +114,21 @@ ModelImporter:
     400102: Untitled
     400104: Upper_Arm_L
     400106: Upper_Arm_R
+    400108: Cylinder
     2300000: Plane
     2300002: Plane_001
     2300004: Plane_002
+    2300006: Cylinder
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
+    3300006: Cylinder
     4300000: Untitled
     4300002: Plane_003
     4300004: Plane_002
     4300006: Plane_001
     4300008: Plane
+    4300010: Cylinder
     7400000: Default Take
     7400002: Squirrel_Jump
     7400004: Squirrel_Scratch
