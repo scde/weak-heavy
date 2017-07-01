@@ -1,0 +1,6 @@
+Background (Sichtbarer Teil):
+12 Unity-Einheiten nach Oben
+17,5 Einheiten nach rechts
+
+Sprites für Animation:
+275 x 275
