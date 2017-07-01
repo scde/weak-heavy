@@ -60,6 +60,10 @@ ModelImporter:
     100104: Upper_Arm_L
     100106: Upper_Arm_R
     100108: Cylinder
+    100110: Band
+    100112: Schnorchel
+    100114: Squirrel
+    100116: Taucherbrille
     400000: Armature
     400002: Base
     400004: Body
@@ -115,20 +119,34 @@ ModelImporter:
     400104: Upper_Arm_L
     400106: Upper_Arm_R
     400108: Cylinder
+    400110: Band
+    400112: Schnorchel
+    400114: Squirrel
+    400116: Taucherbrille
     2300000: Plane
     2300002: Plane_001
     2300004: Plane_002
     2300006: Cylinder
+    2300008: Band
+    2300010: Schnorchel
+    2300012: Taucherbrille
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
     3300006: Cylinder
+    3300008: Band
+    3300010: Schnorchel
+    3300012: Taucherbrille
     4300000: Untitled
     4300002: Plane_003
     4300004: Plane_002
     4300006: Plane_001
     4300008: Plane
     4300010: Cylinder
+    4300012: Band
+    4300014: Taucherbrille
+    4300016: Schnorchel
+    4300018: Squirrel
     7400000: Default Take
     7400002: Squirrel_Jump
     7400004: Squirrel_Scratch
@@ -140,6 +158,7 @@ ModelImporter:
     9500000: //RootNode
     13700000: Plane_003
     13700002: Untitled
+    13700004: Squirrel
   materials:
     importMaterials: 1
     materialName: 0
