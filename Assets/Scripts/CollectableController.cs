@@ -6,16 +6,20 @@ public class CollectableController : MonoBehaviour {
 
     public GameController gameController;
 
+    // Fixes double count on double collision
+    private bool isCollected = false;
+
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !isCollected)
         {
-            //if (gameObject.activeSelf) // use this when you want to temporary disable a gameobject
-            //{
-            //gameObject.SetActive(false);
-            //}
-            // TODO: add item to inventory
-            gameController.AddCoin();
-            Destroy(gameObject);
-        }
+            isCollected = true;
+			//if (gameObject.activeSelf) // use this when you want to temporary disable a gameobject
+			//{
+			//gameObject.SetActive(false);
+			//}
+			// TODO: add item to inventory
+			gameController.AddCoin();
+			Destroy(gameObject);
+		}
     }
 }
