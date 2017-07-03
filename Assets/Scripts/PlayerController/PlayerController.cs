@@ -6,26 +6,26 @@ public class PlayerController : MonoBehaviour {
 
     public int player = 0;
     public float maxSpeed = 10f;
+    // TODO jumpHeight which translates to jumpForce (tutorial)
     public float jumpForce = 500f;
     public float horizontalWallJumpForce = 1000f;
     public bool canDoubleJump = false;
     public bool canWallJump = false;
     public Transform groundCheck;
-    public Transform wallCheck;
+	public Vector2 groundSize = new Vector2(1.25f, 0.65f);
+	public Transform wallCheck;
     public LayerMask whatIsGround;
     public LayerMask whatIsWall;
 
     private Rigidbody2D rb2d;
     private Animator anim;
-    private SpriteRenderer rend;
-    //private CircleCollider2D cc2d;
     private bool facingRight = true;
     private bool grounded = false;
     private bool onWall = false;
-    private float groundRadius = 0.2f;
-    private Vector2 groundSize = new Vector2(1.3f, 0.65f);
+    //private float groundRadius = 0.2f;
     //private float wallRadius = 0.5f;
     private bool doubleJump = false;
+    private bool execJump = false;
 
 
 
@@ -33,59 +33,62 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
-        //cc2d = GetComponent<CircleCollider2D>();
     }
 
-	// FixedUpdate is called once per pyhsics timestep
+	// FixedUpdate is called once per physics timestep
     void FixedUpdate () {
-        //grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround, 0.0f);
+		float move = Input.GetAxis("Horizontal_P" + (player + 1));
+		anim.SetFloat("HorizontalSpeed", Mathf.Abs(move));
+		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
+		//rb2d.AddForce(new Vector2(move * maxSpeed, rb2d.velocity.y));
+
+		if (execJump) {
+            execJump = false;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0.0f);
+			rb2d.AddForce(new Vector2(0.0f, jumpForce));
+		}
+		anim.SetFloat("VerticalSpeed", rb2d.velocity.y);
+
+		grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround, 0.0f);
 		SetGrounded(grounded);
+		//grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 		//anim.SetBool("Grounded", grounded);
 		//onWall = Physics2D.OverlapCircle(wallCheck.position, wallRadius, whatIsWall);
-        //if (grounded) {
-        //    doubleJump = false;
-        //}
-        //if (onWall) {
-        //    grounded = false;
-        //    doubleJump = false;
-        //}
+		//if (grounded) {
+		//    doubleJump = true;
+		//}
+		//if (onWall) {
+		//    grounded = false;
+		//    doubleJump = true;
+		//}
 
-        float move = Input.GetAxis("Horizontal_P" + (player + 1));
-		anim.SetFloat("VerticalSpeed", rb2d.velocity.y);
-		anim.SetFloat("HorizontalSpeed", Mathf.Abs(move));
-
-		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
-        //rb2d.AddForce(new Vector2(move * maxSpeed, rb2d.velocity.y));
-
-        // Flips character (sprites) into moving direction
-        if (move > 0 && !facingRight) {
-            facingRight = !facingRight;
-			rend.flipX = false;
-		}
-        else if (move < 0 && facingRight) {
-			facingRight = !facingRight;
-			rend.flipX = true;
-		}
+        // Flips character (whole GameObject, not only sprite) into moving direction
+        if (move > 0 && !facingRight)
+            Flip();
+        else if (move < 0 && facingRight)
+            Flip();
     }
 
     // Update is called once per frame
     void Update () {
-        if ((grounded || (!doubleJump && canDoubleJump)) && Input.GetButtonDown("Jump_P" + (player + 1))) {
-			//if (!grounded) {
-			//	print ("Doublejump!");
-			//} else {
-			//	print ("Jump!");
-			//}
-            //anim.SetBool("Grounded", false);
-            rb2d.AddForce(new Vector2(0, jumpForce));
+		if ((grounded || (doubleJump && canDoubleJump)) && Input.GetButtonDown("Jump_P" + (player + 1))) {
+    //        if (doubleJump)
+				//print ("Doublejump!");
+    //        if (grounded)
+				//print ("Jump!");
 
-            if (!doubleJump && !grounded) {
-                doubleJump = true;
+			execJump = true;
+
+			// makes sense because it can start animating right away and give visual feedback before the next physics step
+			// although VerticalSpeed should be 0 still maybe the animation becomes wierd
+			anim.SetBool("Grounded", false);
+
+            if (doubleJump && !grounded) {
+                doubleJump = false;
+                //print("doubleJump = false;"); 
             }
         }
-        if (canWallJump && onWall && Input.GetButtonDown("Jump_P" + (player + 1))) {
+		if (canWallJump && onWall && Input.GetButtonDown("Jump_P" + (player + 1))) {
 			print ("Walljump!");
             WallJump();
         }
@@ -130,8 +133,17 @@ public class PlayerController : MonoBehaviour {
 	public void SetGrounded(bool newGrounded) {
         grounded = newGrounded;
         anim.SetBool("Grounded", grounded);
-        if (grounded)
-			doubleJump = false;
+        if (grounded) {
+			doubleJump = true;
+			//print("doubleJump = true;");
+		}
+	}
+
+    private void Flip() {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
 	private void WallJump() {
