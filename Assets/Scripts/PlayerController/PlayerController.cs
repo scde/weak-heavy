@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public int player = 0;
+    public int playerId = 0;
     public float maxSpeed = 10f;
     // TODO jumpHeight which translates to jumpForce (tutorial)
     public float jumpForce = 500f;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 
 	// FixedUpdate is called once per physics timestep
     void FixedUpdate () {
-		float move = Input.GetAxis("Horizontal_P" + (player + 1));
+		float move = Input.GetAxis("Horizontal_" + playerId);
 		anim.SetFloat("HorizontalSpeed", Mathf.Abs(move));
 		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
 		//rb2d.AddForce(new Vector2(move * maxSpeed, rb2d.velocity.y));
@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour {
 			rb2d.AddForce(new Vector2(0.0f, jumpForce));
 		}
 		anim.SetFloat("VerticalSpeed", rb2d.velocity.y);
+
+        if (Mathf.Abs(rb2d.velocity.x) > 0.0f) {
+			//print(rb2d.velocity.x);
+		}
 
 		grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround, 0.0f);
 		SetGrounded(grounded);
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if ((grounded || (doubleJump && canDoubleJump)) && Input.GetButtonDown("Jump_P" + (player + 1))) {
+		if ((grounded || (doubleJump && canDoubleJump)) && Input.GetButtonDown("Jump_" + playerId)) {
     //        if (doubleJump)
 				//print ("Doublejump!");
     //        if (grounded)
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour {
                 //print("doubleJump = false;"); 
             }
         }
-		if (canWallJump && onWall && Input.GetButtonDown("Jump_P" + (player + 1))) {
+		if (canWallJump && onWall && Input.GetButtonDown("Jump_" + playerId)) {
 			print ("Walljump!");
             WallJump();
         }
