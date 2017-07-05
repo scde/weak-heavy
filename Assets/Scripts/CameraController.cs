@@ -16,8 +16,25 @@ public class CameraController : MonoBehaviour {
 
     // Use this for initialization
     private void Start () {
-        m_Camera = GetComponentInChildren<Camera>();
-    }
+		m_Camera = GetComponentInChildren<Camera> ();
+		if (m_Targets [0] == null || m_Targets [1] == null) {
+			Debug.LogWarning ("m_Targets not set. Attempting to autofill.");
+			m_Targets = new Transform[2];
+			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+			if (players != null) {
+				foreach (GameObject player in players) {
+					if (player.name == "PlayerWeak") {
+						m_Targets [0] = player.transform;
+					}
+					if (player.name == "PlayerHeavy") {
+						m_Targets [1] = player.transform;
+					}
+				}
+			}
+			if (m_Targets [0] == null || m_Targets [1] == null)
+				Debug.LogError ("m_Targets could not be autofilled. To fix unhide m_Targets and manually fill the array.");
+		}
+	}
 
     private void FixedUpdate() {
         Move();
