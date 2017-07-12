@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     public float m_ScreenEdgeBuffer = 4f;
     public float m_MinSize = 6.5f;
     //public float m_MaxSize = ?f; // If implemented TODO block player movement.
-    [HideInInspector] public Transform[] m_Targets; // show in Inspector to add Targets with drag and drop
+    /*[HideInInspector]*/ public Transform[] m_Targets; // show in Inspector to add Targets with drag and drop
 
     private Camera m_Camera;
     private float m_ZoomSpeed;

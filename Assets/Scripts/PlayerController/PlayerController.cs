@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		anim.SetFloat("VerticalSpeed", rb2d.velocity.y);
 
-        if (Mathf.Abs(rb2d.velocity.x) > 0.0f) {
-			//print(rb2d.velocity.x);
-		}
+//        if (Mathf.Abs(rb2d.velocity.x) > 0.0f) {
+//			//print(rb2d.velocity.x);
+//		}
 
 		grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround, 0.0f);
 		SetGrounded(grounded);
