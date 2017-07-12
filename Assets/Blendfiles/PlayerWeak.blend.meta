@@ -78,6 +78,7 @@ ModelImporter:
     7400014: Squirrel_WallJump
     7400016: Squirrel_WallJump_off
     7400018: Tauchguertel_Jump
+    7400020: Squirrel_Idle
     9500000: //RootNode
     13700000: Squirrel
     13700002: Tauchg_rtel
