@@ -1,3 +1,0 @@
-Kamerasicht:
-12 Unityeinheiten nach oben
-27.5 Unityeinheiten nach rechts

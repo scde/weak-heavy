@@ -17,7 +17,7 @@ public class LevelBounds : MonoBehaviour {
             if (gameOver && col.gameObject.activeSelf) {
     			col.gameObject.SetActive(false); // use this when you want to temporary disable a gameobject
 			}
-            if (col.gameObject.name == "Player_Weak") {
+            if (col.gameObject.name == "PlayerWeak") {
                 col.gameObject.transform.position = respawnWeak.transform.position;
             }
 			if (col.gameObject.name == "Player_Heavy")

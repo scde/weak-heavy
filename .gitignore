@@ -36,3 +36,6 @@ sysinfo.txt
 # Custom
 tags
 *.swp
+
+# Blender
+*.blend[0-9]
