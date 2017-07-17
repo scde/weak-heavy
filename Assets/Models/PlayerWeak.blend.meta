@@ -34,6 +34,10 @@ ModelImporter:
     100052: Tauchguertel
     100054: Upper_Arm_L
     100056: Upper_Arm_R
+    100058: Schnorchel
+    100060: Schnorchel_Bone
+    100062: Taucherbrille
+    100064: Taucherbrille_Bone
     400000: Base
     400002: Body
     400004: Bone_Tauchguertel
@@ -63,10 +67,16 @@ ModelImporter:
     400052: Tauchguertel
     400054: Upper_Arm_L
     400056: Upper_Arm_R
+    400058: Schnorchel
+    400060: Schnorchel_Bone
+    400062: Taucherbrille
+    400064: Taucherbrille_Bone
     4300000: Squirrel
     4300002: Schuh_L
     4300004: Tauchguertel
     4300006: Schuh_R
+    4300008: Schnorchel
+    4300010: Taucherbrille
     7400000: Default Take
     7400002: Idle
     7400004: Squirrel_Jump
@@ -84,6 +94,8 @@ ModelImporter:
     13700002: Schuh_R
     13700004: Squirrel
     13700006: Tauchguertel
+    13700008: Schnorchel
+    13700010: Taucherbrille
   materials:
     importMaterials: 1
     materialName: 0
