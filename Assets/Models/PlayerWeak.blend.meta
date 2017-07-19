@@ -94,6 +94,12 @@ ModelImporter:
     7400008: Squirrel_Tail_Move
     7400010: Squirrel_Walk
     7400012: Squirrel_Hit
+    7400014: Squirrel_Jump (1)
+    7400016: Squirrel_Jump (2)
+    7400018: Squirrel_Jump (3)
+    7400020: Squirrel_Jump (4)
+    7400022: Squirrel_Jump (5)
+    7400024: Squirrel_Jump (6)
     9500000: //RootNode
     13700000: Kralle_L
     13700002: Kralle_R
@@ -125,7 +131,1231 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Squirrel_Hit
+      takeName: Squirrel_Hit
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Idle
+      takeName: Squirrel_Idle
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump
+      takeName: Squirrel_Jump
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Scratch
+      takeName: Squirrel_Scratch
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Tail_Move
+      takeName: Squirrel_Tail_Move
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Walk
+      takeName: Squirrel_Walk
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (1)
+      takeName: Squirrel_Jump
+      firstFrame: 12
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (2)
+      takeName: Squirrel_Jump
+      firstFrame: 13
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (3)
+      takeName: Squirrel_Jump
+      firstFrame: 14
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (4)
+      takeName: Squirrel_Jump
+      firstFrame: 15
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (5)
+      takeName: Squirrel_Jump
+      firstFrame: 16
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_Jump (6)
+      takeName: Squirrel_Jump
+      firstFrame: 17
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
