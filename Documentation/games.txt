@@ -10,3 +10,5 @@ Nidhogg: https://duckduckgo.com/?q=nidhogg&t=canonical&ia=videos&iax=1
 Super Meat Boy: https://duckduckgo.com/?q=super+meat+boy+characters&t=canonical&ia=videos&iax=1
 Castle Crashers: https://duckduckgo.com/?q=castle+crashers&t=canonical&iax=1&ia=videos
 TowerFall: https://duckduckgo.com/?q=towerfall&t=canonical&iax=1&ia=videos
+Ori: https://duckduckgo.com/?q=ori+lets+play&t=canonical&iar=videos&iax=1&ia=videos
+Little Big Planet: https://duckduckgo.com/?q=little+big+planet&t=canonical&iar=images&iax=1&ia=images
