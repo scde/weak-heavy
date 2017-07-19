@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +8,13 @@ using UnityEngine;
 // - Disables itself after lifetime
 public class DamageController : MonoBehaviour {
 
+    // TODO get values from future weapon / item class
     public float knockBackForce = 400.0f;
     public float knockBackAngle = 80.0f;
+    public float damage = 20.0f;
+    public int maxHits = 1;
 
-	float damage;
-    int maxHits;
-	LayerMask isAttackable;
+    LayerMask isAttackable;
     Dictionary<GameObject, int> timesHit;
 
 	public float Damage
@@ -44,34 +45,30 @@ public class DamageController : MonoBehaviour {
 
     void Awake ()
     {
-        print("Awake");
+        //print("Awake");
 		timesHit = new Dictionary<GameObject, int>();
 	}
 
-    void Start ()
-    {
-		print("Start");
-		// TODO get values from "weapon"
-		damage = 0.0f;
-		maxHits = 1;
-	}
+    //void Start ()
+    //{
+		//print("Start");
+	//}
 
     void OnEnable ()
     {
-        print("OnEnable");
+        //print("OnEnable");
         timesHit.Clear();
     }
 
-	void OnDisable()
-	{
-		print("OnDisable");
-	}
+	//void OnDisable()
+	//{
+		//print("OnDisable");
+	//}
 
 	void OnTriggerStay2D (Collider2D col) {
         GameObject colGObj = col.gameObject;
 
-        // LayerMask check (source): http://answers.unity3d.com/answers/454913/view.html
-		if ((isAttackable.value & 1<<colGObj.layer) != 0) {
+		if (Utilities.CheckLayerMask(isAttackable, colGObj)) {
             if (!timesHit.ContainsKey(colGObj))
             {
 				timesHit.Add(colGObj, 0);
@@ -86,10 +83,10 @@ public class DamageController : MonoBehaviour {
 
                     // TODO Knockback call?
                     float dirX = Mathf.Sign(GetComponentInParent<Rigidbody2D>().transform.localScale.x);
-                    Vector2 force = DegreeToVector2(knockBackAngle);
+                    Vector2 force = Utilities.DegreeToVector2(knockBackAngle);
                     force.x *= dirX * knockBackForce;
 					force.y *= knockBackForce;
-                    // FIXME Move to FixedUpdate() or is OnTriggerStay2D called on the physics update cycle?
+                    // FIXME Move to FixedUpdate() or is OnTriggerStay2D called on the physics update cycle (? -> it is! should it move anyway?)
                     colGObj.GetComponent<Rigidbody2D>().velocity = new Vector2();
                     colGObj.GetComponent<Rigidbody2D>().AddForce(force);
 				}
@@ -97,14 +94,4 @@ public class DamageController : MonoBehaviour {
             }
 		}
     }
-
-	public static Vector2 RadianToVector2(float radian)
-	{
-		return new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
-	}
-
-	public static Vector2 DegreeToVector2(float degree)
-	{
-		return RadianToVector2(degree * Mathf.Deg2Rad);
-	}
 }
