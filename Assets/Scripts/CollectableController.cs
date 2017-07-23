@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Makes GameObject Collectable:
+// - Holds collectable info (key-value pair?)
+// - Handles collection/destruction (fires event?)
 public class CollectableController : MonoBehaviour {
 
     public GameController gameController;

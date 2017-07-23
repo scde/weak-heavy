@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Makes GameObject Switch:
+// - Handles triggering
+// - Handles effects (e.g. en-/disable, event firing (only?), etc.)
 public class SwitchController : MonoBehaviour {
 
     public GameObject[] affectedObjects;

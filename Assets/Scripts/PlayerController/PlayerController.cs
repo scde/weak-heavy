@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Makes GameObject Player: (currently makes them jumpers & movers)
+// - Handles player input
+// - Sets up players
+// - Holds and distributes items/powerups
 public class PlayerController : MonoBehaviour {
 
     public int playerId = 0;
     public float maxSpeed = 10f;
-    // TODO jumpHeight which translates to jumpForce (tutorial)
-    public float jumpForce = 500f;
+    public float jumpHeight = 3.0f;
     public float horizontalWallJumpForce = 1000f;
     public bool canDoubleJump = false;
     public bool canWallJump = false;
@@ -19,7 +22,8 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private Animator anim;
-    private bool facingRight = true;
+    private float jumpVelocity;
+	private bool facingRight = true;
     private bool grounded = false;
     private bool onWall = false;
     //private float groundRadius = 0.2f;
@@ -27,25 +31,23 @@ public class PlayerController : MonoBehaviour {
     private bool doubleJump = false;
     private bool execJump = false;
 
-
-
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-    }
+
+        jumpVelocity = Utilities.InitialJumpVelocity(jumpHeight);
+	}
 
 	// FixedUpdate is called once per physics timestep
     void FixedUpdate () {
 		float move = Input.GetAxis("Horizontal_" + playerId);
 		anim.SetFloat("HorizontalSpeed", Mathf.Abs(move));
 		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
-		//rb2d.AddForce(new Vector2(move * maxSpeed, rb2d.velocity.y));
 
 		if (execJump) {
             execJump = false;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0.0f);
-			rb2d.AddForce(new Vector2(0.0f, jumpForce));
+			rb2d.velocity = new Vector2(rb2d.velocity.x, jumpVelocity);
 		}
 		anim.SetFloat("VerticalSpeed", rb2d.velocity.y);
 
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 //			//print(rb2d.velocity.x);
 //		}
 
-		grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround, 0.0f);
+		grounded = Physics2D.OverlapBox(groundCheck.position, groundSize, 0.0f, whatIsGround);
 		SetGrounded(grounded);
 		//grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 		//anim.SetBool("Grounded", grounded);
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 		//}
 
         // Flips character (whole GameObject, not only sprite) into moving direction
+        // FIXME Bug left/right should stay left/right (e.g. schnorchel)
         if (move > 0 && !facingRight)
             Flip();
         else if (move < 0 && facingRight)
@@ -139,7 +142,6 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("Grounded", grounded);
         if (grounded) {
 			doubleJump = true;
-			//print("doubleJump = true;");
 		}
 	}
 
@@ -152,7 +154,6 @@ public class PlayerController : MonoBehaviour {
 
 	private void WallJump() {
         //rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-        rb2d.AddForce(new Vector2(0,jumpForce));
         //if (facingRight)
             //rb2d.velocity = new Vector2(maxSpeed * -1, rb2d.velocity.y);
         //else

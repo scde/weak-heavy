@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Listens to global events (Pause, Menu, Load, Save, etc.)
 public class GameController : MonoBehaviour {
 
     public Text coinText;
