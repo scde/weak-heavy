@@ -36,6 +36,7 @@ ModelImporter:
     100056: sword
     100058: Crossbowbone
     100060: Swordbone
+    100062: Crossbow
     400000: Armature
     400002: Fu__L
     400004: Fu__R
@@ -67,6 +68,7 @@ ModelImporter:
     400056: sword
     400058: Crossbowbone
     400060: Swordbone
+    400062: Crossbow
     2300000: Armbrust
     2300002: lance
     2300004: Pfeil
@@ -79,6 +81,7 @@ ModelImporter:
     4300006: lance
     4300008: Armbrust
     4300010: Pfeil
+    4300012: Crossbow
     7400000: Default Take
     7400002: ArmatureAction
     7400004: hit
@@ -93,11 +96,21 @@ ModelImporter:
     7400022: sword-attack
     7400024: crossbow_attack
     7400026: mouth_idle-middle_
+    7400028: Bear_Hit
+    7400030: Bear_Attack
+    7400032: Bear_Attack_Crossbow
+    7400034: Bear_Attack_Sword
+    7400036: Bear_Idle
+    7400038: Bear_Idle_Long
+    7400040: Bear_Idle_Middle
+    7400042: Bear_starWalk
+    7400044: Bear_Walk
     9500000: //RootNode
     13700000: Plane_005
     13700002: Bear-mesh
     13700004: sword
     13700006: Pfeil
+    13700008: Crossbow
   materials:
     importMaterials: 1
     materialName: 0
@@ -204,90 +217,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: crossbow_attack
-      takeName: crossbow_attack
-      firstFrame: 1
-      lastFrame: 2
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Bear-mesh
-        weight: 1
-      - path: Bearskeleton
-        weight: 1
-      - path: Bearskeleton/R_cken
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf/Mund
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L/Hand_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Crossbowbone
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Swordbone
-        weight: 1
-      - path: Bearskeleton/Rumpf
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L/Fu__L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R/Fu__R
-        weight: 1
-      - path: lance
-        weight: 1
-      - path: Pfeil
-        weight: 1
-      - path: sword
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: fight
-      takeName: fight
+      name: Bear_Attack
+      takeName: Bear_Attack
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -368,10 +299,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: hit
-      takeName: hit
-      firstFrame: 0
-      lastFrame: 19
+      name: Bear_Attack_Crossbow
+      takeName: Bear_Attack_Crossbow
+      firstFrame: 1
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -450,8 +381,172 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle_short
-      takeName: Idle_short
+      name: Bear_Attack_Sword
+      takeName: Bear_Attack_Sword
+      firstFrame: 4
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bear-mesh
+        weight: 1
+      - path: Bearskeleton
+        weight: 1
+      - path: Bearskeleton/R_cken
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals/Kopf
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals/Kopf/Mund
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L/Hand_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Crossbowbone
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Swordbone
+        weight: 1
+      - path: Bearskeleton/Rumpf
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L/Fu__L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R/Fu__R
+        weight: 1
+      - path: lance
+        weight: 1
+      - path: Pfeil
+        weight: 1
+      - path: sword
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Bear_Hit
+      takeName: Bear_Hit
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bear-mesh
+        weight: 1
+      - path: Bearskeleton
+        weight: 1
+      - path: Bearskeleton/R_cken
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals/Kopf
+        weight: 1
+      - path: Bearskeleton/R_cken/Hals/Kopf/Mund
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L/Hand_L
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Crossbowbone
+        weight: 1
+      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Swordbone
+        weight: 1
+      - path: Bearskeleton/Rumpf
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L/Fu__L
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R
+        weight: 1
+      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R/Fu__R
+        weight: 1
+      - path: lance
+        weight: 1
+      - path: Pfeil
+        weight: 1
+      - path: sword
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Bear_Idle
+      takeName: Bear_Idle
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -532,8 +627,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: layDown_Idle_long_
-      takeName: layDown_Idle_long_
+      name: Bear_Idle_Long
+      takeName: Bear_Idle_Long
       firstFrame: 0
       lastFrame: 84
       wrapMode: 0
@@ -614,8 +709,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: mouth_idle-middle_
-      takeName: mouth_idle-middle_
+      name: Bear_Idle_Middle
+      takeName: Bear_Idle_Middle
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -696,8 +791,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: startWalking
-      takeName: startWalking
+      name: Bear_starWalk
+      takeName: Bear_starWalk
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -778,90 +873,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sword-attack
-      takeName: sword-attack
-      firstFrame: 0
-      lastFrame: 14
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Bear-mesh
-        weight: 1
-      - path: Bearskeleton
-        weight: 1
-      - path: Bearskeleton/R_cken
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf/Mund
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L/Hand_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Crossbowbone
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Swordbone
-        weight: 1
-      - path: Bearskeleton/Rumpf
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L/Fu__L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R/Fu__R
-        weight: 1
-      - path: lance
-        weight: 1
-      - path: Pfeil
-        weight: 1
-      - path: sword
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: walking
-      takeName: walking
+      name: Bear_Walk
+      takeName: Bear_Walk
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
