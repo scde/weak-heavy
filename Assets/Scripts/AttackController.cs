@@ -11,7 +11,8 @@ using UnityEngine;
 public class AttackController : MonoBehaviour {
 
     //[HideInInspector]
-	public GameObject weapon;
+    public GameObject[] weapons;
+    public int weaponId = 1;
 	public float damage = 20.0f;
 	public float knockBack;
 	public float knockBackRadius;
@@ -91,12 +92,25 @@ public class AttackController : MonoBehaviour {
 	}
 
     void Update () {
+        // TODO move to its own script (item, weapon switcher/handler)
+        if(weaponId >= 0) {
+			foreach (GameObject weapon in weapons)
+			{
+				weapon.SetActive(false);
+			}
+			if(0 < weaponId && weaponId < weapons.Length) {
+				weapons[weaponId - 1].SetActive(true);
+			}
+			anim.SetInteger("Weapon", weaponId);
+		}
+
 		if (Input.GetButtonDown("Fire1_1") && !attacking)
 		{
 			attacking = true;
 			//Play Animation
 			// maybe use attackCooldown as value to determine animation/attack speed
-			anim.SetBool("Attacking", attacking);
+			anim.SetTrigger("Attack");
+			//anim.SetBool("Attack", attacking);
 			curAttackTime = attackCooldown;
 			if (!attackCheck.activeSelf)
 			{
@@ -109,7 +123,7 @@ public class AttackController : MonoBehaviour {
         }
         else if (attacking) {
             attacking = false;
-            anim.SetBool("Attacking", attacking);
+            //anim.SetBool("Attacking", attacking);
             curAttackTime = 0.0f;
             if (attackCheck.activeSelf)
             {
