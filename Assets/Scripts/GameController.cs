@@ -21,6 +21,6 @@ public class GameController : MonoBehaviour {
     }
 
     private void UpdateCoinText() {
-        coinText.text = "Coin:\n" + coinCounter;
+        coinText.text = "Coins:\n" + coinCounter;
     }
 }
