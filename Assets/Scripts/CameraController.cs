@@ -2,56 +2,91 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
+
+    private static CameraController instance = null;
+
+    public static CameraController Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
     public float m_DampTime = 0.2f;
     public float m_ScreenEdgeBuffer = 4f;
     public float m_MinSize = 6.5f;
     //public float m_MaxSize = ?f; // If implemented TODO block player movement.
-    /*[HideInInspector]*/ public Transform[] m_Targets; // show in Inspector to add Targets with drag and drop
+    // TODO move to private & setter
+    [HideInInspector] public Transform[] m_Targets; // show in Inspector to add Targets with drag and drop
 
     private Camera m_Camera;
     private float m_ZoomSpeed;
     private Vector3 m_MoveVelocity;
     private Vector3 m_DesiredPosition;
 
-    // Use this for initialization
-    private void Start () {
-		m_Camera = GetComponentInChildren<Camera> ();
-		if (m_Targets [0] == null || m_Targets [1] == null) {
-			Debug.LogWarning ("m_Targets not set. Attempting to autofill.");
-			m_Targets = new Transform[2];
-			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-			if (players != null) {
-				foreach (GameObject player in players) {
-					if (player.name == "PlayerWeak") {
-						m_Targets [0] = player.transform;
-					}
-					if (player.name == "PlayerHeavy") {
-						m_Targets [1] = player.transform;
-					}
-				}
-			}
-			if (m_Targets [0] == null || m_Targets [1] == null)
-				Debug.LogError ("m_Targets could not be autofilled. To fix unhide m_Targets and manually fill the array.");
-		}
-	}
+    private void Awake()
+    {
+        // source: https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager
+        // and https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
+        // and https://stackoverflow.com/documentation/unity3d/2137/singletons-in-unity/14518/a-simple-singleton-monobehaviour-in-unity-c-sharp#t=201707311922517721043
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-    private void FixedUpdate() {
+    // Use this for initialization
+    private void Start()
+    {
+        m_Camera = GetComponentInChildren<Camera>();
+        //if (m_Targets [0] == null || m_Targets [1] == null) {
+        //	Debug.LogWarning ("m_Targets not set. Attempting to autofill.");
+        //	m_Targets = new Transform[2];
+        //	GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+        //	if (players != null) {
+        //		foreach (GameObject player in players) {
+        //			if (player.name == "PlayerWeak") {
+        //				m_Targets [0] = player.transform;
+        //			}
+        //			if (player.name == "PlayerHeavy") {
+        //				m_Targets [1] = player.transform;
+        //			}
+        //		}
+        //	}
+        //	if (m_Targets [0] == null || m_Targets [1] == null)
+        //		Debug.LogError ("m_Targets could not be autofilled. To fix unhide m_Targets and manually fill the array.");
+        //}
+    }
+
+    // TODO ? LateUpdate: For camera movement after because player movement is done
+    private void FixedUpdate()
+    {
         Move();
         Zoom();
     }
 
     // Update is called once per frame
-    private void Update () {
+    private void Update()
+    {
     }
 
-    private void Move() {
+    private void Move()
+    {
         FindAveragePosition();
 
         transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
     }
 
-    private void FindAveragePosition() {
+    private void FindAveragePosition()
+    {
         Vector3 averagePos = new Vector3();
 
         for (int i = 0; i < m_Targets.Length; i++)
@@ -65,17 +100,20 @@ public class CameraController : MonoBehaviour {
         m_DesiredPosition = averagePos;
     }
 
-    private void Zoom() {
+    private void Zoom()
+    {
         float requiredSize = FindRequiredSize();
         m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
     }
 
-    private float FindRequiredSize() {
+    private float FindRequiredSize()
+    {
         Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
 
         float size = 0f;
 
-        for (int i = 0; i < m_Targets.Length; i++) {
+        for (int i = 0; i < m_Targets.Length; i++)
+        {
             Vector3 targetLocalPos = transform.InverseTransformPoint(m_Targets[i].position);
 
             Vector3 desiredPosToTarget = targetLocalPos - desiredLocalPos;

@@ -2,95 +2,122 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyController: PlayerController {
+public class HeavyController : PlayerController
+{
 
-	public float runSpeed;
-	public float walkSpeed;
-	bool running;
+    private static HeavyController instance = null;
 
-	Rigidbody myRB;
-	Animator myAnim;
+    public static HeavyController Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
-	bool facingRight;
+    private void Awake()
+    {
+        // source: https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager
+        // and https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
+        // and https://stackoverflow.com/documentation/unity3d/2137/singletons-in-unity/14518/a-simple-singleton-monobehaviour-in-unity-c-sharp#t=201707311922517721043
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-	bool grounded = false;
-	Collider[] groundCollisions;
-	float groundCheckRadius = 0.2f;
-	public LayerMask groundLayer;
-	public Transform groundCheck;
-	public float jumpHeigth;
+    //public float runSpeed;
+    //public float walkSpeed;
+    //bool running;
 
-	void Start () {
-		myRB = GetComponent<Rigidbody>();
-		myAnim = GetComponent<Animator>();
-		facingRight = true;
-	}
+    //Rigidbody myRB;
+    //Animator myAnim;
 
-	void Update () {
-		
-	}
+    //bool facingRight;
 
-	void FixedUpdate() {
+    //bool grounded = false;
+    //Collider[] groundCollisions;
+    //float groundCheckRadius = 0.2f;
+    //public LayerMask groundLayer;
+    //public Transform groundCheck;
+    //public float jumpHeigth;
 
-		running = false;
+    //void Start () {
+    //	myRB = GetComponent<Rigidbody>();
+    //	myAnim = GetComponent<Animator>();
+    //	facingRight = true;
+    //}
+
+    //void Update () {
+
+    //}
+
+    //void FixedUpdate() {
+
+    //	running = false;
 
 
-		if (grounded && Input.GetAxis("Jump")>0) {
-			grounded = false;
-			myAnim.SetBool ("grounded", grounded);
-			myRB.AddForce (new Vector3 (0, jumpHeigth, 0));
-		}
+    //	if (grounded && Input.GetAxis("Jump")>0) {
+    //		grounded = false;
+    //		myAnim.SetBool ("grounded", grounded);
+    //		myRB.AddForce (new Vector3 (0, jumpHeigth, 0));
+    //	}
 
-		groundCollisions = Physics.OverlapSphere (groundCheck.position, groundCheckRadius, groundLayer);
-		if (groundCollisions.Length > 0) {
-			grounded = true;
-		} else {
-			grounded = false;
-		}
+    //	groundCollisions = Physics.OverlapSphere (groundCheck.position, groundCheckRadius, groundLayer);
+    //	if (groundCollisions.Length > 0) {
+    //		grounded = true;
+    //	} else {
+    //		grounded = false;
+    //	}
 
-		myAnim.SetBool ("grounded", grounded);
+    //	myAnim.SetBool ("grounded", grounded);
 
-		float move = Input.GetAxis("Horizontal");
-		myAnim.SetFloat("Speed", Mathf.Abs(move));
+    //	float move = Input.GetAxis("Horizontal");
+    //	myAnim.SetFloat("Speed", Mathf.Abs(move));
 
-		float sneaking = Input.GetAxisRaw ("Fire3");
-		myAnim.SetFloat ("sneaking", sneaking);
+    //	float sneaking = Input.GetAxisRaw ("Fire3");
+    //	myAnim.SetFloat ("sneaking", sneaking);
 
-		float shooting = Input.GetAxis ("Fire1");
-		myAnim.SetFloat ("shooting", shooting);
-		if ((sneaking > 0 || shooting > 0) && grounded) {
-			myRB.velocity = new Vector3 (move * walkSpeed, myRB.velocity.y, 0);
-		} else {
-			myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
-			if(Mathf.Abs(move) > 0) {
-				running = true;
-			}
-		}
+    //	float shooting = Input.GetAxis ("Fire1");
+    //	myAnim.SetFloat ("shooting", shooting);
+    //	if ((sneaking > 0 || shooting > 0) && grounded) {
+    //		myRB.velocity = new Vector3 (move * walkSpeed, myRB.velocity.y, 0);
+    //	} else {
+    //		myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
+    //		if(Mathf.Abs(move) > 0) {
+    //			running = true;
+    //		}
+    //	}
 
-		
-		if (move > 0 && !facingRight){
-			Flip();
-		} else if (move < 0 && facingRight) {
-			Flip();
-		}
-	}
 
-	void Flip(){
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.z = -1;
-		transform.localScale = theScale;
-	}
+    //	if (move > 0 && !facingRight){
+    //		Flip();
+    //	} else if (move < 0 && facingRight) {
+    //		Flip();
+    //	}
+    //}
 
-	public float GetFacing(){
-		if (facingRight) {
-			return 1;
-		} else {
-			return -1;
-		}
-	}
+    //void Flip(){
+    //	facingRight = !facingRight;
+    //	Vector3 theScale = transform.localScale;
+    //	theScale.z = -1;
+    //	transform.localScale = theScale;
+    //}
 
-	public bool getRunning(){
-		return (running);
-	}
+    //public float GetFacing(){
+    //	if (facingRight) {
+    //		return 1;
+    //	} else {
+    //		return -1;
+    //	}
+    //}
+
+    //public bool getRunning(){
+    //	return (running);
+    //}
 }

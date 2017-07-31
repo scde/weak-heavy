@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class DestroyMe : MonoBehaviour {
 
-	public float aliveTime;
+	//public float aliveTime;
 
-	// Use this for initialization
-	void Start () {
+	//// Use this for initialization
+	//void Start () {
 		
-	}
+	//}
 	
-	// Update is called once per frame
-	void Update () {
+	//// Update is called once per frame
+	//void Update () {
 		
-	}
+	//}
 
-	void Awake () {
-		Destroy (gameObject, aliveTime);
-	}
+	//void Awake () {
+	//	Destroy (gameObject, aliveTime);
+	//}
  }
