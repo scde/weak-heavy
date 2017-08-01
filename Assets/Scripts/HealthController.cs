@@ -6,27 +6,41 @@ using UnityEngine;
 // - Keeps track of health
 // - Keeps track of invincibility
 // - Handles death (fires death event?)
-public class HealthController : MonoBehaviour {
+public class HealthController : MonoBehaviour
+{
 
     public float maxHealth = 100.0f;
 
     float currentHealth;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         currentHealth = maxHealth;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
+        {
+            GUIController.Instance.UpdateHealth(gameObject, currentHealth);
+        }
+    }
 
-    public void TakeDamage (float damage) {
+    public void TakeDamage(float damage)
+    {
         currentHealth -= damage;
-        // Display Stuff (on HUD, Avatar[red flash], etc.)
-        if (currentHealth <= 0.0f) {
-            Destroy(gameObject);
+        if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
+        {
+            GUIController.Instance.UpdateHealth(gameObject, currentHealth);
+        }
+        // TODO Display Stuff (on HUD, Avatar[red flash], etc.)
+        if (currentHealth <= 0.0f)
+        {
+            if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
+            {
+                // TODO handle Respawn/GameOver
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
