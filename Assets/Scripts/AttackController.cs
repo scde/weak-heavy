@@ -104,7 +104,7 @@ public class AttackController : MonoBehaviour
             {
                 weapon.SetActive(false);
             }
-            if (0 < weaponId && weaponId < weapons.Length)
+            if (0 < weaponId && weaponId <= weapons.Length)
             {
                 weapons[weaponId - 1].SetActive(true);
             }
