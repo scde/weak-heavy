@@ -10,6 +10,9 @@ public class DamageController : MonoBehaviour
 {
 
     // TODO get values from future weapon / item class
+    public float lifetime;
+    public float speed;
+    public Transform followPoint;
     public Transform knockBackPoint;
     // TODO use units instead of force
     public float knockBackForce = 400.0f;
@@ -19,6 +22,7 @@ public class DamageController : MonoBehaviour
     public LayerMask isAttackable;
 
     Dictionary<GameObject, int> timesHit;
+    Rigidbody2D rb2d;
 
     void Awake()
     {
@@ -34,6 +38,32 @@ public class DamageController : MonoBehaviour
     {
         if (knockBackPoint == null)
             knockBackPoint = transform;
+
+        rb2d = GetComponent<Rigidbody2D>();
+
+        if (lifetime > 0)
+            Destroy(gameObject, lifetime);
+    }
+
+    void FixedUpdate()
+    {
+        if (speed > 0)
+        {
+            // TODO FIXME magnitude and direction
+            rb2d.AddForce(new Vector2(speed, 0.0f));
+            speed = 0;
+        }
+    }
+
+    void Update()
+    {
+        // TODO object pooling (instead of instantiate-destroy-cycle):
+        // https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
+        //if (lifetime <= 0)
+        //{
+        //gameObject.SetActive(false);
+        //}
+        //lifetime -= Time.deltaTime;
     }
 
     void OnTriggerStay2D(Collider2D col)

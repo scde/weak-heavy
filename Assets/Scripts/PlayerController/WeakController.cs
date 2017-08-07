@@ -23,6 +23,7 @@ public class WeakController : PlayerController
         if (instance == null)
         {
             instance = this;
+            playerId = 0;
             DontDestroyOnLoad(gameObject);
         }
         else
