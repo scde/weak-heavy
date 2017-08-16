@@ -13,6 +13,7 @@ public class SwitchController : MonoBehaviour
 
     private bool switchIsOn = false;
     private bool switchLocked = false;
+	private bool switchable = true;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -26,15 +27,18 @@ public class SwitchController : MonoBehaviour
     // RigidBody2Ds "Sleeping Mode"-option has to be set to "Never Sleep" otherwise the rb2d will go to sleep and stay will stop fireing
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && !switchLocked && !isTriggerSwitch)
+		Debug.Log ("isInTrigger");
+		if (col.gameObject.tag == "Player" && !switchLocked && !isTriggerSwitch && switchable)
         {
             // TODO Events & Listeners would be likely be better!
             if (col.GetComponent<WeakController>() && Input.GetButtonDown("Action_0"))
             {
+				Debug.Log("switch activated");
                 Switch();
             }
             else if (col.GetComponent<HeavyController>() && Input.GetButtonDown("Action_1"))
             {
+				Debug.Log("switch activated");
                 Switch();
             }
         }
@@ -44,7 +48,16 @@ public class SwitchController : MonoBehaviour
     {
         StartCoroutine(ShortInactivity());
         switchIsOn = !switchIsOn;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -transform.eulerAngles.z);
+
+        //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, - transform.eulerAngles.z);
+		if (transform.rotation.y == 0) {
+			transform.rotation = Quaternion.Euler (0, 180, 0);
+		} else if (transform.rotation.y == 180) {
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+		}
+		// disables switch if neccessary change to true
+		switchable = false;
+
         //if (switchIsOn)
         //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
         //else
