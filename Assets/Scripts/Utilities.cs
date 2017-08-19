@@ -24,4 +24,10 @@ public static class Utilities {
     {
         return Mathf.Sqrt(2 * Mathf.Abs(Physics2D.gravity.y) * jumpHeight);
     }
+
+	public static IEnumerator waitForRespawn(float RespawnTime, GameObject gOBJ){
+		gOBJ.SetActive (false);
+		yield return new WaitForSeconds(RespawnTime);
+		gOBJ.SetActive (true);
+	}
 }
