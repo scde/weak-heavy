@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     // TODO add EventSystem?
     public WeakController playerWeakPrefab;
     public HeavyController playerHeavyPrefab;
-    public CameraController cameraControllerPrefab;
+	public CameraControllerHorizontal cameraControllerPrefab;
     public GUIController guiControllerPrefab;
 
     // TODO maybe use these references instead of singleton on the players
@@ -72,11 +72,11 @@ public class GameManager : MonoBehaviour
         //playerHeavy = HeavyController.Instance;
 
         // Camera
-        if (CameraController.Instance == null)
+		if (CameraControllerHorizontal.Instance == null)
         {
             Instantiate(cameraControllerPrefab);
         }
-        CameraController.Instance.m_Targets = new Transform[] { WeakController.Instance.transform, HeavyController.Instance.transform };
+		CameraControllerHorizontal.Instance.m_Targets = new Transform[] { WeakController.Instance.transform, HeavyController.Instance.transform };
 
         // GUI
         if (GUIController.Instance == null)
