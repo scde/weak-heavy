@@ -6,17 +6,19 @@ public class FollowPath : MonoBehaviour {
 
 	public enum moveType{UseTransform, UsePhysics};
 	public moveType moveTypes;
-	public Transform[] pathPoints;
+	public GameObject Path;
 	public int currentPath = 0;
 	public float reachDistance = 5.0f;
 	public float speed = 5.0f;
 
-	private bool facingRight;
+	private Transform[] pathPoints;	
+	public bool facingRight;
 	private bool playerIsInRange = false;
 	private GameObject playerInRange = null;
 
 	// Use this for initialization
 	void Start () {
+		findPathPoints ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -58,6 +60,19 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = playerInRange.transform.position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 
+		/*Vector3 targetPostition = new Vector3( pathPoints[currentPath].position.x, 
+			this.transform.position.y, 
+			pathPoints[currentPath].position.z ) ;
+		transform.LookAt (targetPostition);*/
+
+		/*if (dir.x < 0 && facingRight) {
+			Flip (dirNorm);
+		} else if (dir.x > 0 && !facingRight) {
+			Flip (dirNorm);
+		} else {
+			// do nothing
+		}*/
+
 		switch (moveTypes) {
 		case moveType.UseTransform:
 			transform.Translate (dirNorm * speed);
@@ -77,6 +92,14 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = pathPoints [currentPath].position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 
+		/*if (dir.x < 0 && facingRight) {
+			Flip (dirNorm);
+		} else if (dir.x > 0 && !facingRight) {
+			Flip (dirNorm);
+		} else {
+			// do nothing
+		}*/
+
 
 		switch (moveTypes) {
 		case moveType.UseTransform:
@@ -89,6 +112,10 @@ public class FollowPath : MonoBehaviour {
 
 		if (dir.magnitude <= reachDistance) {
 			currentPath++;
+			/*Vector3 targetPostition = new Vector3( pathPoints[currentPath].position.x, 
+				this.transform.position.y, 
+				pathPoints[currentPath].position.z ) ;
+			transform.LookAt (targetPostition);*/
 			Flip (dirNorm);
 			if (currentPath >= pathPoints.Length) {
 				currentPath = 0;
@@ -96,6 +123,16 @@ public class FollowPath : MonoBehaviour {
 		}
 	
 	}
+
+	void findPathPoints ()
+	{
+		int numChildObjects = Path.transform.childCount;
+		pathPoints = new Transform[numChildObjects];
+
+		for (int i = 0; i < numChildObjects; i++) {
+			pathPoints [i] = Path.transform.GetChild (i);
+		}
+	}	
 		
 
 	void OnDrawGizmos (){
@@ -111,6 +148,7 @@ public class FollowPath : MonoBehaviour {
 
 
 	private void Flip(Vector3 dirNorm) {
+		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		if ((dirNorm.x < 0 && theScale.x > 0) || (dirNorm.x > 0 && theScale.x < 0)) {
 			theScale.x *= -1;
