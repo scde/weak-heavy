@@ -17,8 +17,11 @@ public class CameraControllerHorizontal : MonoBehaviour {
 
 	public float m_DampTime = 0.2f;
 	public float m_ScreenEdgeBuffer = 4f;
+	public Vector3 minCameraPosition;
+	public Vector3 maxCameraPosition;
 
 	private Camera m_Camera;
+	private float cameraSize;
 	private float m_ZoomSpeed;
 	private Vector3 m_MoveVelocity;
 	private Vector3 m_DesiredPosition;
@@ -43,7 +46,9 @@ public class CameraControllerHorizontal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		m_Camera = GetComponentInChildren<Camera>();
+		m_Camera = gameObject.GetComponentInChildren<Camera> ();
+		cameraSize = m_Camera.orthographicSize;
+		//FindCameraLimits ();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +60,10 @@ public class CameraControllerHorizontal : MonoBehaviour {
 	{
 		FindAveragePosition();
 		transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+
+		transform.position = new Vector3 (Mathf.Clamp (transform.position.x, minCameraPosition.x, maxCameraPosition.x), 
+			Mathf.Clamp (transform.position.y, minCameraPosition.y, maxCameraPosition.y),
+			Mathf.Clamp (transform.position.z, minCameraPosition.z, maxCameraPosition.z));
 	}
 
 	private void FindAveragePosition()
@@ -72,5 +81,13 @@ public class CameraControllerHorizontal : MonoBehaviour {
 		averagePos.y = transform.position.y;
 
 		m_DesiredPosition = averagePos;
+	}
+
+	public void SetMinCamPosition(){
+		minCameraPosition = transform.position;
+	}
+
+	public void SetMaxCamPosition(){
+		maxCameraPosition = transform.position;
 	}
 }
