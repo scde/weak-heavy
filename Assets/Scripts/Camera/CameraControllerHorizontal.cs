@@ -17,8 +17,6 @@ public class CameraControllerHorizontal : MonoBehaviour {
 
 	public float m_DampTime = 0.2f;
 	public float m_ScreenEdgeBuffer = 4f;
-	public float m_MinSize = 6.5f;
-	public bool isZooming = false;
 
 	private Camera m_Camera;
 	private float m_ZoomSpeed;
@@ -51,22 +49,12 @@ public class CameraControllerHorizontal : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		Move ();
-		if (isZooming) {
-			Zoom ();
-		}
 	}
 
 	private void Move()
 	{
 		FindAveragePosition();
-
 		transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
-	}
-
-	private void Zoom(){
-		float requiredSize = FindRequiredSize ();
-
-		m_Camera.orthographicSize = Mathf.SmoothDamp (m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
 	}
 
 	private void FindAveragePosition()
@@ -84,18 +72,5 @@ public class CameraControllerHorizontal : MonoBehaviour {
 		averagePos.y = transform.position.y;
 
 		m_DesiredPosition = averagePos;
-	}
-
-
-	private float FindRequiredSize()
-	{
-		Vector3 averagePos = new Vector3 ();
-
-		for (int i = 0; i < m_Targets.Length; i++)
-			averagePos += m_Targets [i].position;
-
-		return averagePos.x + (2* m_ScreenEdgeBuffer);
-
-
 	}
 }
