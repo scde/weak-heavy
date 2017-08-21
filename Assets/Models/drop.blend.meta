@@ -1,18 +1,27 @@
 fileFormatVersion: 2
-guid: a8c1d5cfceac9b6418ea48ea4c1977b7
-timeCreated: 1503147819
+guid: 6c3cd56cc52660e4b8d286c9fa57573f
+timeCreated: 1503310326
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
-    4300002: Water
+    100000: Armature
+    100002: Bone_001
+    100004: Bone_002
+    100006: Bone_003
+    100008: //RootNode
+    100010: Plane
+    400000: Armature
+    400002: Bone_001
+    400004: Bone_002
+    400006: Bone_003
+    400008: //RootNode
+    400010: Plane
+    4300000: Plane
     7400000: Default Take
+    7400002: ArmatureAction
     9500000: //RootNode
+    13700000: Plane
   materials:
     importMaterials: 1
     materialName: 0

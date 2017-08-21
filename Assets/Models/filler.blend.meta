@@ -8,17 +8,38 @@ ModelImporter:
     100000: //RootNode
     100002: filler
     100004: spire
+    100006: Bone
+    100008: Bone_001
+    100010: Bone_002
+    100012: Bone_003
+    100014: Bone_004
+    100016: Bone_005
+    100018: Filler-skelleton
+    100020: inkspot
     400000: //RootNode
     400002: filler
     400004: spire
+    400006: Bone
+    400008: Bone_001
+    400010: Bone_002
+    400012: Bone_003
+    400014: Bone_004
+    400016: Bone_005
+    400018: Filler-skelleton
+    400020: inkspot
     2300000: filler
     2300002: spire
+    2300004: inkspot
     3300000: filler
     3300002: spire
+    3300004: inkspot
     4300000: spire
     4300002: filler
+    4300004: inkspot
     7400000: Default Take
+    7400002: Filler-skelletonAction
     9500000: //RootNode
+    13700000: filler
   materials:
     importMaterials: 1
     materialName: 0
