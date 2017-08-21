@@ -7,35 +7,11 @@ public class turnToPlayer : MonoBehaviour {
 
 	public GameObject[] players;
 
-
-	private bool facingRight = true;	
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void FixedUpdate() {
 		GameObject nextPlayer = findNearestPlayer ();
-		Vector3 dir = nextPlayer.transform.position - transform.position;
 		print ("nextPlayer: " + nextPlayer.name);
-
-		if (dir.x < 0 && facingRight) {
-			Flip ();
-		} else if (dir.x > 0 && !facingRight) {
-			Flip ();
-		} else {
-			// do nothing
+		lookAtTarget (nextPlayer.transform);
 		}
-
-
-	}
 
 	GameObject findNearestPlayer ()
 	{
@@ -54,10 +30,9 @@ public class turnToPlayer : MonoBehaviour {
 		return nextPlayer;
 	}
 
-	private void Flip() {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+	void lookAtTarget(Transform target){
+		Vector3 dir = target.position - transform.position;
+		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle -180, Vector3.forward);
 	}
 }

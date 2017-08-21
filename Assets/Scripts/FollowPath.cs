@@ -10,6 +10,7 @@ public class FollowPath : MonoBehaviour {
 	public int currentPath = 0;
 	public float reachDistance = 5.0f;
 	public float speed = 5.0f;
+	public float turnSpeed = 0.0f;
 
 	private Transform[] pathPoints;	
 	public bool facingRight;
@@ -60,10 +61,7 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = playerInRange.transform.position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		/*Vector3 targetPostition = new Vector3( pathPoints[currentPath].position.x, 
-			this.transform.position.y, 
-			pathPoints[currentPath].position.z ) ;
-		transform.LookAt (targetPostition);*/
+		lookAtTarget3 (playerInRange.transform);
 
 		/*if (dir.x < 0 && facingRight) {
 			Flip (dirNorm);
@@ -92,14 +90,7 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = pathPoints [currentPath].position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		/*if (dir.x < 0 && facingRight) {
-			Flip (dirNorm);
-		} else if (dir.x > 0 && !facingRight) {
-			Flip (dirNorm);
-		} else {
-			// do nothing
-		}*/
-
+		lookAtTarget3 (pathPoints [currentPath].transform);
 
 		switch (moveTypes) {
 		case moveType.UseTransform:
@@ -112,14 +103,11 @@ public class FollowPath : MonoBehaviour {
 
 		if (dir.magnitude <= reachDistance) {
 			currentPath++;
-			/*Vector3 targetPostition = new Vector3( pathPoints[currentPath].position.x, 
-				this.transform.position.y, 
-				pathPoints[currentPath].position.z ) ;
-			transform.LookAt (targetPostition);*/
-			Flip (dirNorm);
+			//Flip (dirNorm);
 			if (currentPath >= pathPoints.Length) {
 				currentPath = 0;
 			}
+
 		}
 	
 	}
@@ -144,6 +132,23 @@ public class FollowPath : MonoBehaviour {
 				Gizmos.DrawSphere (pathPoint.position, reachDistance);
 			}
 		}
+	}
+
+	void lookAtTarget(Transform target){
+		transform.LookAt (target);
+	}
+
+	void lookAtTarget2(Transform target){
+		var lookPos = target.position - transform.position;
+		lookPos.y = 0;
+		var rotation = Quaternion.LookRotation(lookPos);
+		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
+	}
+		
+	void lookAtTarget3(Transform target){
+		Vector3 dir = target.position - transform.position;
+		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle -180, Vector3.forward);
 	}
 
 
