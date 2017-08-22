@@ -13,13 +13,15 @@ public class FollowPath : MonoBehaviour {
 	public float turnSpeed = 0.0f;
 
 	private Transform[] pathPoints;	
-	public bool facingRight;
 	private bool playerIsInRange = false;
 	private GameObject playerInRange = null;
+	private Transform ScissorTransform;                       
 
 	// Use this for initialization
 	void Start () {
+		ScissorTransform = GetComponentInParent<Transform> ();
 		findPathPoints ();
+		lookAtTarget (pathPoints [currentPath].transform);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -58,25 +60,17 @@ public class FollowPath : MonoBehaviour {
 
 	void moveToPlayer ()
 	{
-		Vector3 dir = playerInRange.transform.position - transform.position;
+		Vector3 dir = playerInRange.transform.position - ScissorTransform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		lookAtTarget3 (playerInRange.transform);
-
-		/*if (dir.x < 0 && facingRight) {
-			Flip (dirNorm);
-		} else if (dir.x > 0 && !facingRight) {
-			Flip (dirNorm);
-		} else {
-			// do nothing
-		}*/
+		lookAtTarget (playerInRange.transform);
 
 		switch (moveTypes) {
 		case moveType.UseTransform:
-			transform.Translate (dirNorm * speed);
+			ScissorTransform.Translate (dirNorm * speed);
 			break;
 		case moveType.UsePhysics:
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (dirNorm.x * (speed * Time.fixedDeltaTime), GetComponent<Rigidbody2D>().velocity.y);
+			GetComponentInParent<Rigidbody2D>().velocity = new Vector2 (dirNorm.x * (speed * Time.fixedDeltaTime), GetComponentInParent<Rigidbody2D>().velocity.y);
 			break;
 		}
 	}
@@ -87,27 +81,25 @@ public class FollowPath : MonoBehaviour {
 	// *
 
 	void MoveToNextWaypoint(){
-		Vector3 dir = pathPoints [currentPath].position - transform.position;
+		Vector3 dir = pathPoints [currentPath].position - ScissorTransform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		lookAtTarget3 (pathPoints [currentPath].transform);
+		lookAtTarget (pathPoints [currentPath].transform);
 
 		switch (moveTypes) {
 		case moveType.UseTransform:
-			transform.Translate (dirNorm * speed);
+			ScissorTransform.Translate (dirNorm * speed);
 			break;
 		case moveType.UsePhysics:
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (dirNorm.x * (speed * Time.fixedDeltaTime), GetComponent<Rigidbody2D>().velocity.y);
+			GetComponentInParent<Rigidbody2D>().velocity = new Vector2 (dirNorm.x * (speed * Time.fixedDeltaTime), GetComponentInParent<Rigidbody2D>().velocity.y);
 			break;
 		}
 
 		if (dir.magnitude <= reachDistance) {
 			currentPath++;
-			//Flip (dirNorm);
 			if (currentPath >= pathPoints.Length) {
 				currentPath = 0;
 			}
-
 		}
 	
 	}
@@ -133,32 +125,17 @@ public class FollowPath : MonoBehaviour {
 			}
 		}
 	}
-
-	void lookAtTarget(Transform target){
-		transform.LookAt (target);
-	}
-
-	void lookAtTarget2(Transform target){
-		var lookPos = target.position - transform.position;
-		lookPos.y = 0;
-		var rotation = Quaternion.LookRotation(lookPos);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
-	}
 		
-	void lookAtTarget3(Transform target){
-		Vector3 dir = target.position - transform.position;
+	void lookAtTarget(Transform target){
+		Vector3 dir = target.position - ScissorTransform.position;
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
 		transform.rotation = Quaternion.AngleAxis(angle -180, Vector3.forward);
-	}
 
-
-	private void Flip(Vector3 dirNorm) {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		if ((dirNorm.x < 0 && theScale.x > 0) || (dirNorm.x > 0 && theScale.x < 0)) {
-			theScale.x *= -1;
+		if (Mathf.Abs(angle) < 90) {
+			transform.parent.transform.rotation = Quaternion.Euler (0, 0, 180);
+		} else {
+			transform.parent.transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
-		transform.localScale = theScale;
 	}
-
 }
