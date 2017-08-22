@@ -8,9 +8,8 @@ public class FollowPath : MonoBehaviour {
 	public moveType moveTypes;
 	public GameObject Path;
 	public int currentPath = 0;
-	public float reachDistance = 5.0f;
-	public float speed = 5.0f;
-	public float turnSpeed = 0.0f;
+	public float reachDistance = 2.0f;
+	public float speed;
 
 	private Transform[] pathPoints;	
 	private bool playerIsInRange = false;
