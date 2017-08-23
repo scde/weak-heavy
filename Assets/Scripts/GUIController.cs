@@ -16,9 +16,14 @@ public class GUIController : MonoBehaviour
         }
     }
 
+    public GameObject paperRolePrefab;
+
     private Text coinText;
     private Text weakHealthText;
     private Text heavyHealthText;
+    private Text paperRoleText;
+    private GameObject paperRole;
+    private Animator paperRoleAnimator;
     // TODO Move to ItemManager?
     private int coinCounter;
     private float weakHealth;
@@ -62,6 +67,16 @@ public class GUIController : MonoBehaviour
                     heavyHealth = HeavyController.Instance.GetComponent<HealthController>().maxHealth;
                     UpdateHealth(HeavyController.Instance.gameObject, heavyHealth);
                     break;
+                case "PaperRoleText":
+                    if (paperRolePrefab != null)
+                    {
+                        paperRoleText = t;
+                        paperRoleText.enabled = false;
+                        paperRole = Instantiate(paperRolePrefab) as GameObject;
+                        paperRoleAnimator = paperRole.GetComponent<Animator>();
+                        paperRole.SetActive(false);
+                    }
+                    break;
                 default:
                     Debug.LogWarning("Unhandled GUI/Canvas Text reference: " + t);
                     break;
@@ -98,5 +113,50 @@ public class GUIController : MonoBehaviour
     private void UpdateCoinText()
     {
         coinText.text = "Coins:\n" + coinCounter;
+    }
+
+    public void ShowPaperRole(string text)
+    {
+        if (paperRoleText != null)
+        {
+            paperRoleText.text = text;
+        }
+        // TODO center & scale paperRole to screen
+        if (paperRole != null)
+        {
+            paperRole.SetActive(true);
+            StartCoroutine(WaitForPaperRoleAnimation(true));
+        }
+    }
+
+    public void HidePaperRole()
+    {
+        paperRoleText.enabled = false;
+        StartCoroutine(WaitForPaperRoleAnimation(false));
+    }
+
+    IEnumerator WaitForPaperRoleAnimation(bool isOpen)
+    {
+        float clipLength = 0.0f;
+        RuntimeAnimatorController ac = paperRoleAnimator.runtimeAnimatorController;
+        for (int i = 0; i < ac.animationClips.Length; i++)
+        {
+            if (ac.animationClips[i].name == "Open")
+            {
+                clipLength = ac.animationClips[i].length;
+            }
+        }
+
+        paperRoleAnimator.SetBool("Open", isOpen);
+        yield return new WaitForSeconds(clipLength);
+
+        if (isOpen)
+        {
+            paperRoleText.enabled = true;
+        }
+        else
+        {
+            paperRole.SetActive(false);
+        }
     }
 }
