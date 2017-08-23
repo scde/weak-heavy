@@ -16,17 +16,22 @@ public class CameraControllerHorizontal : MonoBehaviour {
 	}
 
 	public float m_DampTime = 0.2f;
-	public float m_ScreenEdgeBuffer = 4f;
 	public Vector3 minCameraPosition;
 	public Vector3 maxCameraPosition;
 
-	private Camera m_Camera;
-	private float cameraSize;
-	private float m_ZoomSpeed;
+	[HideInInspector] public Transform[] m_Targets;
+
 	private Vector3 m_MoveVelocity;
 	private Vector3 m_DesiredPosition;
 
-	[HideInInspector] public Transform[] m_Targets;
+	private const int ADAPT_POSITION = -1;
+
+
+	float defaultWidth;
+
+	Vector3 CameraPos;
+
+
 
 	private void Awake()
 	{
@@ -44,11 +49,24 @@ public class CameraControllerHorizontal : MonoBehaviour {
 		}
 	}
 
+	//CameraPos.x + 
+	void FixCameraResolution ()
+	{
+		transform.position = new Vector3 (ADAPT_POSITION * (defaultWidth - Camera.main.orthographicSize * Camera.main.aspect), CameraPos.y, CameraPos.z);
+	}
+
 	// Use this for initialization
 	void Start () {
-		m_Camera = gameObject.GetComponentInChildren<Camera> ();
-		cameraSize = m_Camera.orthographicSize;
-		//FindCameraLimits ();
+		initCamera ();
+	}
+
+	void initCamera ()
+	{
+		CameraPos = Camera.main.transform.position;
+
+		defaultWidth = Camera.main.orthographicSize * Camera.main.aspect;
+		FixCameraResolution ();
+	
 	}
 	
 	// Update is called once per frame
