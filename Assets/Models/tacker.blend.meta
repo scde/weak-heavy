@@ -11,13 +11,18 @@ ModelImporter:
     100006: tacker
     100008: tacker_skeleton
     100010: Unterer_Teil
+    100012: staple
     400000: Mitte
     400002: Oberer_Teil
     400004: //RootNode
     400006: tacker
     400008: tacker_skeleton
     400010: Unterer_Teil
+    400012: staple
+    2300000: staple
+    3300000: staple
     4300000: tacker
+    4300002: staple
     7400000: Default Take
     7400002: ArmatureAction
     9500000: //RootNode
