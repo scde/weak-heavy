@@ -36,6 +36,14 @@ public class PlayerController : MonoBehaviour
 
     protected int playerId;
 
+    public int PlayerId
+    {
+        get
+        {
+            return playerId;
+        }
+    }
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private float jumpVelocity;
@@ -139,18 +147,38 @@ public class PlayerController : MonoBehaviour
         // TODO action event for switches/buttons
         if (Input.GetButtonDown("Jump_" + playerId))
         {
-            if (grounded)
-            {
-                Jump();
-            }
-            else if (wallSliding && canWallJump)
-            {
-                WallJump();
-            }
-            else if (doubleJump && canDoubleJump)
-            {
-                Jump();
-            }
+            EventManager.TriggerEvent("Jump_" + playerId);
+        }
+
+        if (Input.GetButtonDown("Action_" + playerId))
+        {
+            EventManager.TriggerEvent("Action_" + playerId);
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventManager.StartListening("Jump_" + playerId, ExecJump);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening("Jump_" + playerId, ExecJump);
+    }
+
+    private void ExecJump()
+    {
+        if (grounded)
+        {
+            Jump();
+        }
+        else if (wallSliding && canWallJump)
+        {
+            WallJump();
+        }
+        else if (doubleJump && canDoubleJump)
+        {
+            Jump();
         }
     }
 
@@ -182,7 +210,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("WallSliding", false);
     }
 
-    void Jump()
+    private void Jump()
     {
         execJump = true;
 
