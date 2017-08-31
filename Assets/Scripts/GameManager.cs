@@ -32,28 +32,8 @@ public class GameManager : MonoBehaviour
     public EventManager eventManagerPrefab;
     public WeakController playerWeakPrefab;
     public HeavyController playerHeavyPrefab;
-    public CameraControllerHorizontal cameraControllerPrefab;
+    public CameraControllerHorizontal cameraControllerHorizontalPrefab;
     public GUIController guiControllerPrefab;
-
-    // TODO maybe use these references instead of singleton on the players
-    //private WeakController playerWeak;
-    //private HeavyController playerHeavy;
-
-    //public WeakController PlayerWeak
-    //{
-    //	get
-    //	{
-    //		return playerWeak;
-    //	}
-    //}
-
-    //public HeavyController PlayerHeavy
-    //{
-    //	get
-    //	{
-    //		return playerHeavy;
-    //	}
-    //}
 
     private void Awake()
     {
@@ -81,17 +61,16 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(playerWeakPrefab);
         }
-        //playerWeak = WeakController.Instance;
+
         if (HeavyController.Instance == null)
         {
             Instantiate(playerHeavyPrefab);
         }
-        //playerHeavy = HeavyController.Instance;
 
         // Camera
         if (CameraControllerHorizontal.Instance == null)
         {
-            Instantiate(cameraControllerPrefab);
+            Instantiate(cameraControllerHorizontalPrefab);
         }
         CameraControllerHorizontal.Instance.m_Targets = new Transform[] { WeakController.Instance.transform, HeavyController.Instance.transform };
 
