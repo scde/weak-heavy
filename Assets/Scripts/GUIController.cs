@@ -78,7 +78,7 @@ public class GUIController : MonoBehaviour
                     break;
                 case "PaperRoleText":
                     paperRoleText = t;
-                    paperRoleText.enabled = false;
+                    paperRoleText.gameObject.SetActive(false);
                     paperRoleSlider = GetComponentInChildren<Slider>();
                     paperRoleSlider.gameObject.SetActive(false);
                     slideTarget = paperRoleSlider.minValue;
@@ -130,7 +130,7 @@ public class GUIController : MonoBehaviour
         // Allow escape characters like line breaks ("\n") passed string
         // source: https://forum.unity3d.com/threads/inputing-a-line-break-in-a-text-field-for-ui.319223/#post-3077848
         paperRoleText.text = System.Text.RegularExpressions.Regex.Unescape(text);
-        paperRoleText.enabled = true;
+        paperRoleText.gameObject.SetActive(true);
         if (!GameManager.Instance.IsPaused)
         {
             EventManager.TriggerEvent("Pause");
@@ -142,7 +142,7 @@ public class GUIController : MonoBehaviour
         // TODO animation of opening the scroll
         EventManager.StopListening("Action_" + WeakController.Instance.PlayerId, HideFullScreenPopUp);
         EventManager.StopListening("Action_" + HeavyController.Instance.PlayerId, HideFullScreenPopUp);
-        paperRoleText.enabled = false;
+        paperRoleText.gameObject.SetActive(false);
         paperRoleSlider.gameObject.SetActive(false);
         paperRoleSlider.value = 0.0f;
         if (GameManager.Instance.IsPaused)
