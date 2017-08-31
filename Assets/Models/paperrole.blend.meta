@@ -9,19 +9,24 @@ ModelImporter:
     100002: //RootNode
     100004: role1
     100006: role2
+    100008: role2_001
     400000: paper
     400002: //RootNode
     400004: role1
     400006: role2
+    400008: role2_001
     2300000: paper
     2300002: role1
     2300004: role2
+    2300006: role2_001
     3300000: paper
     3300002: role1
     3300004: role2
+    3300006: role2_001
     4300000: role1
     4300002: role2
     4300004: paper
+    4300006: role2_001
     7400000: Default Take
     7400002: Open_Close
     7400004: Initial_State
