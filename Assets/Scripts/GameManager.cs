@@ -18,10 +18,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool isPaused;
+
+    public bool IsPaused
+    {
+        get
+        {
+            return isPaused;
+        }
+    }
+
     // TODO add EventSystem?
+    public EventManager eventManagerPrefab;
     public WeakController playerWeakPrefab;
     public HeavyController playerHeavyPrefab;
-	public CameraControllerHorizontal cameraControllerPrefab;
+    public CameraControllerHorizontal cameraControllerPrefab;
     public GUIController guiControllerPrefab;
 
     // TODO maybe use these references instead of singleton on the players
@@ -59,6 +70,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Event Manager
+        if (EventManager.Instance == null)
+        {
+            Instantiate(eventManagerPrefab);
+        }
+
         // Players
         if (WeakController.Instance == null)
         {
@@ -72,16 +89,53 @@ public class GameManager : MonoBehaviour
         //playerHeavy = HeavyController.Instance;
 
         // Camera
-		if (CameraControllerHorizontal.Instance == null)
+        if (CameraControllerHorizontal.Instance == null)
         {
             Instantiate(cameraControllerPrefab);
         }
-		CameraControllerHorizontal.Instance.m_Targets = new Transform[] { WeakController.Instance.transform, HeavyController.Instance.transform };
+        CameraControllerHorizontal.Instance.m_Targets = new Transform[] { WeakController.Instance.transform, HeavyController.Instance.transform };
 
         // GUI
         if (GUIController.Instance == null)
         {
             Instantiate(guiControllerPrefab);
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventManager.StartListening("Pause", PauseGame);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening("Pause", PauseGame);
+    }
+
+    private void Start()
+    {
+        isPaused = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            EventManager.TriggerEvent("Pause");
+        }
+    }
+
+    private void PauseGame()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            Time.timeScale = 1.0f;
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0.0f;
         }
     }
 }
