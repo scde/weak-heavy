@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f75d1235f7e28bd48a2dfd3498b936be
-timeCreated: 1500465232
+guid: 721e5da8a2d324c4a85f4a8005b00417
+timeCreated: 1504174524
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: staple
+    4300000: Tree1
     7400000: Default Take
     9500000: //RootNode
   materials:
