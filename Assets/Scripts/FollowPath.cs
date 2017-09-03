@@ -10,7 +10,7 @@ public class FollowPath : MonoBehaviour {
 	public int currentPath = 0;
 	public float reachDistance = 2.0f;
 	public float speed;
-	public bool lookAtTarget;
+	public bool m_lookAtTarget;
 
 	private Transform[] pathPoints;	
 	private bool playerIsInRange = false;
