@@ -10,6 +10,7 @@ public class FollowPath : MonoBehaviour {
 	public int currentPath = 0;
 	public float reachDistance = 2.0f;
 	public float speed;
+	public bool lookAtTarget;
 
 	private Transform[] pathPoints;	
 	private bool playerIsInRange = false;
@@ -20,7 +21,9 @@ public class FollowPath : MonoBehaviour {
 	void Start () {
 		ScissorTransform = GetComponentInParent<Transform> ();
 		findPathPoints ();
-		lookAtTarget (pathPoints [currentPath].transform);
+		if (lookAtTarget) {
+			lookAtTarget (pathPoints [currentPath].transform);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -62,7 +65,9 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = playerInRange.transform.position - ScissorTransform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		lookAtTarget (playerInRange.transform);
+		if (lookAtTarget) {
+			lookAtTarget (playerInRange.transform);
+		}
 
 		switch (moveTypes) {
 		case moveType.UseTransform:
@@ -83,8 +88,10 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = pathPoints [currentPath].position - ScissorTransform.position;
 		Vector3 dirNorm = dir.normalized;
 
-		lookAtTarget (pathPoints [currentPath].transform);
-
+		if (lookAtTarget) {
+			lookAtTarget (pathPoints [currentPath].transform);
+		}
+			
 		switch (moveTypes) {
 		case moveType.UseTransform:
 			ScissorTransform.Translate (dirNorm * speed);
