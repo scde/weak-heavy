@@ -112,6 +112,8 @@ ModelImporter:
     7400054: Bear_Jump (4)
     7400056: Bear_Jump (5)
     7400058: Bear_Jump (6)
+    7400060: Bear_Attack (1)
+    7400062: Bear_walking
     9500000: //RootNode
     13700000: Plane_005
     13700002: Bear-mesh
@@ -145,7 +147,7 @@ ModelImporter:
       name: Default Take
       takeName: Default Take
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -226,8 +228,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Attack
       takeName: Bear_Attack
-      firstFrame: 0
-      lastFrame: 14
+      firstFrame: 4
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -308,8 +310,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Attack_Crossbow
       takeName: Bear_Attack_Crossbow
-      firstFrame: 1
-      lastFrame: 13
+      firstFrame: 2
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -390,8 +392,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Attack_Sword
       takeName: Bear_Attack_Sword
-      firstFrame: 0
-      lastFrame: 17
+      firstFrame: 3
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -801,7 +803,7 @@ ModelImporter:
       name: Bear_Jump
       takeName: Bear_Jump
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -880,92 +882,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Bear_starWalk
-      takeName: Bear_starWalk
+      name: Bear_walking
+      takeName: Bear_walking
       firstFrame: 0
-      lastFrame: 44
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Bear-mesh
-        weight: 1
-      - path: Bearskeleton
-        weight: 1
-      - path: Bearskeleton/R_cken
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf
-        weight: 1
-      - path: Bearskeleton/R_cken/Hals/Kopf/Mund
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_L/Unterarm_L/Hand_L
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Crossbowbone
-        weight: 1
-      - path: Bearskeleton/R_cken/Oberarm_R/Unterarm_R/Hand_R/Swordbone
-        weight: 1
-      - path: Bearskeleton/Rumpf
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___L/Oberschenkel_L/Unterschenkel_L/Fu__L
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R
-        weight: 1
-      - path: Bearskeleton/Rumpf/Ges___R/Oberschenkel_R/Unterschenkel_R/Fu__R
-        weight: 1
-      - path: Crossbow
-        weight: 1
-      - path: lance
-        weight: 1
-      - path: sword
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Bear_Walk
-      takeName: Bear_Walk
-      firstFrame: 0
-      lastFrame: 50
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1046,8 +966,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (1)
       takeName: Bear_Jump
-      firstFrame: 20
-      lastFrame: 21
+      firstFrame: 12
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1128,8 +1048,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (2)
       takeName: Bear_Jump
-      firstFrame: 21
-      lastFrame: 22
+      firstFrame: 13
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1210,8 +1130,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (3)
       takeName: Bear_Jump
-      firstFrame: 22
-      lastFrame: 23
+      firstFrame: 14
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1292,8 +1212,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (4)
       takeName: Bear_Jump
-      firstFrame: 23
-      lastFrame: 24
+      firstFrame: 15
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1374,8 +1294,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (5)
       takeName: Bear_Jump
-      firstFrame: 24
-      lastFrame: 25
+      firstFrame: 16
+      lastFrame: 17
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1456,8 +1376,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Jump (6)
       takeName: Bear_Jump
-      firstFrame: 25
-      lastFrame: 26
+      firstFrame: 17
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
