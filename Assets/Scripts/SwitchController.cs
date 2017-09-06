@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,48 +12,116 @@ public class SwitchController : MonoBehaviour
     public GameObject[] affectedObjects;
     public bool isTriggerSwitch = false;
     public bool isOneTimeSwitch = false;
+    public bool triggerOnEmpty = false;
+    public float enableTime = 0.0f;
+    public float disableTime = 0.0f;
     public float inactivityTime = 1.0f;
+    public LayerMask activationLayerMask;
 
     private Animator anim;
     private bool switchIsOn = false;
     private bool switchLocked = false;
+    private int activatorCounter;
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        if (activationLayerMask == 0)
+        {
+            Debug.LogWarning(gameObject + ": No Activation Layer Mask set. Defaulting to both player characters.");
+            activationLayerMask = LayerMask.GetMask(new string[] { "Player_Weak", "Player_Heavy" });
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && !switchLocked && isTriggerSwitch)
+        if (Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
         {
-            Switch();
-        }
-    }
-
-
-    // RigidBody2Ds "Sleeping Mode"-option has to be set to "Never Sleep" otherwise the rb2d will go to sleep and stay will stop fireing
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player" && !switchLocked && !isTriggerSwitch)
-        {
-            // TODO Events & Listeners would likely be better!
-            if (col.GetComponent<WeakController>() && Input.GetButtonDown("Action_0"))
+            if (activatorCounter == 0 && triggerOnEmpty)
             {
                 Switch();
             }
-            else if (col.GetComponent<HeavyController>() && Input.GetButtonDown("Action_1"))
+            activatorCounter++;
+        }
+        if (isTriggerSwitch && Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
+        {
+            Switch();
+        }
+
+        if (!isTriggerSwitch && Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
+        {
+            if (col.gameObject == WeakController.Instance.gameObject)
+            {
+                EventManager.Instance.StartListening("Action_" + WeakController.Instance.PlayerId, Switch);
+            }
+            else if (col.gameObject == HeavyController.Instance.gameObject)
+            {
+                EventManager.Instance.StartListening("Action_" + HeavyController.Instance.PlayerId, Switch);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
+        {
+            activatorCounter--;
+            if (activatorCounter == 0 && triggerOnEmpty)
             {
                 Switch();
+            }
+        }
+        if (!isTriggerSwitch && Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
+        {
+            if (col.gameObject == WeakController.Instance.gameObject)
+            {
+                EventManager.Instance.StopListening("Action_" + WeakController.Instance.PlayerId, Switch);
+            }
+            else if (col.gameObject == HeavyController.Instance.gameObject)
+            {
+                EventManager.Instance.StopListening("Action_" + HeavyController.Instance.PlayerId, Switch);
             }
         }
     }
 
     private void Switch()
     {
-        StartCoroutine(ShortInactivity());
+        if (switchLocked)
+        {
+            Debug.Log("Switch cancled!");
+            return;
+        }
+        else
+        {
+            Debug.Log("Switch");
+        }
+
+        StartCoroutine(InactivityTimer());
+
+        if (enableTime > 0.0f)
+        {
+            StartCoroutine(EnableTimer());
+        }
+        else
+        {
+            SwapAffected();
+
+            if (disableTime > 0.0f)
+            {
+                StartCoroutine(DisableTimer());
+            }
+        }
+    }
+
+    // possible TODO: Trigger animations, sounds
+    // or possibly create dynamic events that just trigger here and can be executed elsewhere
+    private void SwapAffected()
+    {
         switchIsOn = !switchIsOn;
-        anim.SetBool("Activated", switchIsOn);
+        if (anim != null)
+        {
+            anim.SetBool("Activated", switchIsOn);
+        }
 
         // disable/enable affectedObjects or do other stuff
         foreach (GameObject gObj in affectedObjects)
@@ -68,12 +137,29 @@ public class SwitchController : MonoBehaviour
         }
     }
 
-    private IEnumerator ShortInactivity()
+    private IEnumerator EnableTimer()
+    {
+        yield return new WaitForSeconds(enableTime);
+        SwapAffected();
+
+        if (disableTime > 0.0f)
+        {
+            StartCoroutine(DisableTimer());
+        }
+    }
+
+    private IEnumerator DisableTimer()
+    {
+        yield return new WaitForSeconds(disableTime);
+        SwapAffected();
+    }
+
+    private IEnumerator InactivityTimer()
     {
         switchLocked = true;
-        // you can also realize timer switches here (you would likely need to change other stuff though)
         yield return new WaitForSeconds(inactivityTime);
-        if (!isOneTimeSwitch) {
+        if (!isOneTimeSwitch)
+        {
             switchLocked = false;
         }
     }
