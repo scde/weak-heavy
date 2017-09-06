@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 4ec5bc76bdff2440f96c364eb3033207
-timeCreated: 1504188405
+timeCreated: 1504475004
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Paperrole_0
+    21300002: Paperrole_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -119,8 +120,8 @@ TextureImporter:
         width: 140
         height: 518
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 37, y: 0, z: 37, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 36, y: 76, z: 35, w: 75}
       outline: []
       tessellationDetail: 0
     outline: []

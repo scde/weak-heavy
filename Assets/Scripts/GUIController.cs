@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GUIController : MonoBehaviour
 {
@@ -16,21 +18,43 @@ public class GUIController : MonoBehaviour
         }
     }
 
-    public float slideDuration;
+    private bool uiShown;
+    public bool UiShown
+    {
+        get
+        {
+            return uiShown;
+        }
+    }
 
+    private EventSystem eventSystem;
+    public EventSystem EventSystem
+    {
+        get
+        {
+            return eventSystem;
+        }
+    }
+
+    public MenuController[] menus;
+    public MenuController[] Menus
+    {
+        get
+        {
+            return menus;
+        }
+    }
+
+    public EventSystem eventSystemPrefab;
+
+    private MenuController currentMenu;
     private Text coinText;
     private Text weakHealthText;
     private Text heavyHealthText;
-    private Text paperRoleText;
-    private Slider paperRoleSlider;
-    private float slideTarget;
-    private float curSlideTime;
-    private float lastTimeStamp;
     // TODO Move to ItemManager?
     private int coinCounter;
     private float weakHealth;
     private float heavyHealth;
-    private float passedTime;
 
     private void Awake()
     {
@@ -48,14 +72,14 @@ public class GUIController : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        EventManager.StopListening("Action_" + WeakController.Instance.PlayerId, HideFullScreenPopUp);
-        EventManager.StopListening("Action_" + HeavyController.Instance.PlayerId, HideFullScreenPopUp);
-    }
-
     void Start()
     {
+        eventSystem = FindObjectOfType<EventSystem>();
+        if (eventSystem == null)
+        {
+            eventSystem = Instantiate(eventSystemPrefab) as EventSystem;
+        }
+
         foreach (Text t in GetComponentsInChildren<Text>())
         {
             // TODO investigate if "(Clone)" (when instantiating from prefab) hinders searching by name
@@ -76,18 +100,39 @@ public class GUIController : MonoBehaviour
                     heavyHealth = HeavyController.Instance.GetComponent<HealthController>().maxHealth;
                     UpdateHealth(HeavyController.Instance.gameObject, heavyHealth);
                     break;
-                case "PaperRoleText":
-                    paperRoleText = t;
-                    paperRoleText.gameObject.SetActive(false);
-                    paperRoleSlider = GetComponentInChildren<Slider>();
-                    paperRoleSlider.gameObject.SetActive(false);
-                    slideTarget = paperRoleSlider.minValue;
-                    break;
-                default:
-                    Debug.LogWarning("Unhandled GUI/Canvas Text reference: " + t);
-                    break;
             }
         }
+    }
+
+    public void ShowMenu(MenuController menu)
+    {
+        if (!GameManager.Instance.IsPaused && menu.pausesGame)
+        {
+            EventManager.Instance.TriggerEvent("Pause");
+        }
+
+        if (currentMenu != null)
+        {
+            currentMenu.IsShown = false;
+        }
+
+        currentMenu = menu;
+        currentMenu.IsShown = true;
+        uiShown = true;
+    }
+
+    public void HideMenu()
+    {
+        if (GameManager.Instance.IsPaused)
+        {
+            EventManager.Instance.TriggerEvent("UnPause");
+        }
+
+        if (currentMenu != null)
+        {
+            currentMenu.IsShown = false;
+        }
+        uiShown = false;
     }
 
     public void UpdateHealth(GameObject player, float health)
@@ -119,35 +164,5 @@ public class GUIController : MonoBehaviour
     private void UpdateCoinText()
     {
         coinText.text = "Coins:\n" + coinCounter;
-    }
-
-    public void ShowFullScreenPopUp(string text)
-    {
-        EventManager.StartListening("Action_" + WeakController.Instance.PlayerId, HideFullScreenPopUp);
-        EventManager.StartListening("Action_" + HeavyController.Instance.PlayerId, HideFullScreenPopUp);
-        paperRoleSlider.value = 1.0f;
-        paperRoleSlider.gameObject.SetActive(true);
-        // Allow escape characters like line breaks ("\n") passed string
-        // source: https://forum.unity3d.com/threads/inputing-a-line-break-in-a-text-field-for-ui.319223/#post-3077848
-        paperRoleText.text = System.Text.RegularExpressions.Regex.Unescape(text);
-        paperRoleText.gameObject.SetActive(true);
-        if (!GameManager.Instance.IsPaused)
-        {
-            EventManager.TriggerEvent("Pause");
-        }
-    }
-
-    private void HideFullScreenPopUp()
-    {
-        // TODO animation of opening the scroll
-        EventManager.StopListening("Action_" + WeakController.Instance.PlayerId, HideFullScreenPopUp);
-        EventManager.StopListening("Action_" + HeavyController.Instance.PlayerId, HideFullScreenPopUp);
-        paperRoleText.gameObject.SetActive(false);
-        paperRoleSlider.gameObject.SetActive(false);
-        paperRoleSlider.value = 0.0f;
-        if (GameManager.Instance.IsPaused)
-        {
-            EventManager.TriggerEvent("Pause");
-        }
     }
 }
