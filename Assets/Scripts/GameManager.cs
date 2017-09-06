@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Setup GameObjects/Prefabs at startup
 // loads Levels
@@ -28,12 +30,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // TODO add EventSystem?
     public EventManager eventManagerPrefab;
     public WeakController playerWeakPrefab;
     public HeavyController playerHeavyPrefab;
     public CameraControllerHorizontal cameraControllerHorizontalPrefab;
     public GUIController guiControllerPrefab;
+
+    private MenuController pauseMenu;
 
     private void Awake()
     {
@@ -83,38 +86,74 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.StartListening("Pause", PauseGame);
+        EventManager.Instance.StartListening("Pause", PauseGame);
+        EventManager.Instance.StartListening("UnPause", UnPauseGame);
     }
 
     private void OnDisable()
     {
-        EventManager.StopListening("Pause", PauseGame);
+        EventManager.Instance.StopListening("Pause", PauseGame);
+        EventManager.Instance.StopListening("UnPause", UnPauseGame);
     }
 
     private void Start()
     {
         isPaused = false;
+        foreach (MenuController menu in GUIController.Instance.Menus)
+        {
+            switch (menu.name)
+            {
+                case "PauseMenu":
+                    pauseMenu = menu;
+                    break;
+            }
+        }
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (!isPaused)
         {
-            EventManager.TriggerEvent("Pause");
+            if (Input.GetButtonDown("Cancel_0") || Input.GetButtonDown("Cancel_1"))
+            {
+                GUIController.Instance.ShowMenu(pauseMenu);
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Cancel_0") || Input.GetButtonDown("Cancel_1"))
+            {
+                GUIController.Instance.HideMenu();
+            }
         }
     }
 
     private void PauseGame()
+    {
+        if (!isPaused)
+        {
+            isPaused = true;
+            Time.timeScale = 0.0f;
+        }
+    }
+
+    private void UnPauseGame()
     {
         if (isPaused)
         {
             isPaused = false;
             Time.timeScale = 1.0f;
         }
-        else
-        {
-            isPaused = true;
-            Time.timeScale = 0.0f;
-        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void QuitGame()
+    {
+        // TODO save game state
+        Application.Quit();
     }
 }
