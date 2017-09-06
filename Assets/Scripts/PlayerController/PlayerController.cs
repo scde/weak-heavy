@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     private bool doubleJump;
     private bool execJump;
     private bool execWallJump;
+    private bool lastFramePaused;
 
     protected void Start()
     {
@@ -143,27 +144,34 @@ public class PlayerController : MonoBehaviour
 
     protected void Update()
     {
-        // TODO weapon/item switching (return out of all other input)
-        // TODO action event for switches/buttons
-        if (Input.GetButtonDown("Jump_" + playerId))
+        // lastFramePaused is needed to skip a frame after the UnPause event
+        // until the Action-Key can be used. Otherwise there are bugs when
+        // unpausing with the Action-Key
+        if (!GameManager.Instance.IsPaused && !lastFramePaused)
         {
-            EventManager.TriggerEvent("Jump_" + playerId);
-        }
+            // TODO weapon/item switching (return out of all other input)
+            // TODO action event for switches/buttons
+            if (Input.GetButtonDown("Jump_" + playerId))
+            {
+                EventManager.Instance.TriggerEvent("Jump_" + playerId);
+            }
 
-        if (Input.GetButtonDown("Action_" + playerId))
-        {
-            EventManager.TriggerEvent("Action_" + playerId);
+            if (Input.GetButtonDown("Action_" + playerId))
+            {
+                EventManager.Instance.TriggerEvent("Action_" + playerId);
+            }
         }
+        lastFramePaused = GameManager.Instance.IsPaused;
     }
 
     private void OnEnable()
     {
-        EventManager.StartListening("Jump_" + playerId, ExecJump);
+        EventManager.Instance.StartListening("Jump_" + playerId, ExecJump);
     }
 
     private void OnDisable()
     {
-        EventManager.StopListening("Jump_" + playerId, ExecJump);
+        EventManager.Instance.StopListening("Jump_" + playerId, ExecJump);
     }
 
     private void ExecJump()
