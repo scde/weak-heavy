@@ -1,36 +1,22 @@
 fileFormatVersion: 2
-guid: 336d6741d19b18e4f9d28cb44889d31b
-timeCreated: 1503307257
+guid: 620d5dbf58e02c048a4b8a3c237b645c
+timeCreated: 1504774139
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Deckel
-    100004: Bone
-    100006: Bottom
-    100008: Skeleton
-    100010: Top
-    400000: //RootNode
-    400002: Deckel
-    400004: Bone
-    400006: Bottom
-    400008: Skeleton
-    400010: Top
-    2300000: //RootNode
-    2300002: Deckel
-    2300004: Bottom
-    3300000: //RootNode
-    3300002: Deckel
-    3300004: Bottom
+    100000: Deckel
+    100002: //RootNode
+    400000: Deckel
+    400002: //RootNode
+    2300000: Deckel
+    2300002: //RootNode
+    3300000: Deckel
+    3300002: //RootNode
     4300000: Truhe
     4300002: Deckel
-    4300004: Top
-    4300006: Bottom
     7400000: Default Take
-    7400002: ArmatureAction
     9500000: //RootNode
-    13700000: Top
   materials:
     importMaterials: 1
     materialName: 0
