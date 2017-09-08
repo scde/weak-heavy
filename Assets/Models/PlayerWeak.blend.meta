@@ -103,6 +103,8 @@ ModelImporter:
     7400022: Squirrel_Jump (5)
     7400024: Squirrel_Jump (6)
     7400026: Squirrel_WallJump
+    7400028: Squirrel_Wallslide
+    7400030: Squirrel_WallSlide
     9500000: //RootNode
     13700000: Kralle_L
     13700002: Kralle_R
@@ -1441,6 +1443,110 @@ ModelImporter:
       - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
         weight: 1
       - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Foot_R_001/Foot_R_002
+        weight: 1
+      - path: Skeleton_Squirrel/Bone_Tauchguertel
+        weight: 1
+      - path: Squirrel
+        weight: 1
+      - path: Taucherbrille
+        weight: 1
+      - path: Tauchguertel
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Squirrel_WallSlide
+      takeName: Squirrel_Wallslide
+      firstFrame: 8
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Kralle_L
+        weight: 1
+      - path: Kralle_R
+        weight: 1
+      - path: Schnorchel
+        weight: 1
+      - path: Schuh_L
+        weight: 1
+      - path: Schuh_R
+        weight: 1
+      - path: Skeleton_Squirrel
+        weight: 1
+      - path: Skeleton_Squirrel/Base
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Cheek_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_L/Ear_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Ear_Wing_R/Ear_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Head
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Schnorchel_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Neck/Taucherbrille_Bone
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Hand_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_L/Middle_Arm_L/Lower_Arm_L/Kralle_Bone_L
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Hand_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Arm_R/Middle_Arm_R/Lower_Arm_R/Kralle_Bone_R
+        weight: 1
+      - path: Skeleton_Squirrel/Base/Body/Upper_Back
         weight: 1
       - path: Skeleton_Squirrel/Base/Foot_L
         weight: 1
