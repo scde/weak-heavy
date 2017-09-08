@@ -42,6 +42,7 @@ ModelImporter:
     100068: Tauchguertel
     100070: Upper_Arm_L
     100072: Upper_Arm_R
+    100074: Upper_Back
     400000: Base
     400002: Body
     400004: Bone_Tauchguertel
@@ -79,6 +80,7 @@ ModelImporter:
     400068: Tauchguertel
     400070: Upper_Arm_L
     400072: Upper_Arm_R
+    400074: Upper_Back
     4300000: Squirrel
     4300002: Kralle_L
     4300004: Kralle_R
