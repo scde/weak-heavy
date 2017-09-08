@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             execWallJump = false;
 
-            if (Equals(move, 0))
+            if (Equals(move, 0.0f))
             {
                 vel.x = -wallDirX * wallJumpOff.x;
                 vel.y = wallJumpOff.y;
