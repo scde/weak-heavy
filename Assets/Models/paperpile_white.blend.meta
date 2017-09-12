@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: 11ed88ad5c2710c45bb2866819b4da8d
+timeCreated: 1505204099
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: pile_MeshPart0
+    100004: pile_MeshPart1
+    100006: pile_MeshPart10
+    100008: pile_MeshPart11
+    100010: pile_MeshPart12
+    100012: pile_MeshPart13
+    100014: pile_MeshPart14
+    100016: pile_MeshPart15
+    100018: pile_MeshPart16
+    100020: pile_MeshPart17
+    100022: pile_MeshPart18
+    100024: pile_MeshPart2
+    100026: pile_MeshPart3
+    100028: pile_MeshPart4
+    100030: pile_MeshPart5
+    100032: pile_MeshPart6
+    100034: pile_MeshPart7
+    100036: pile_MeshPart8
+    100038: pile_MeshPart9
+    400000: //RootNode
+    400002: pile_MeshPart0
+    400004: pile_MeshPart1
+    400006: pile_MeshPart10
+    400008: pile_MeshPart11
+    400010: pile_MeshPart12
+    400012: pile_MeshPart13
+    400014: pile_MeshPart14
+    400016: pile_MeshPart15
+    400018: pile_MeshPart16
+    400020: pile_MeshPart17
+    400022: pile_MeshPart18
+    400024: pile_MeshPart2
+    400026: pile_MeshPart3
+    400028: pile_MeshPart4
+    400030: pile_MeshPart5
+    400032: pile_MeshPart6
+    400034: pile_MeshPart7
+    400036: pile_MeshPart8
+    400038: pile_MeshPart9
+    2300000: pile_MeshPart0
+    2300002: pile_MeshPart1
+    2300004: pile_MeshPart10
+    2300006: pile_MeshPart11
+    2300008: pile_MeshPart12
+    2300010: pile_MeshPart13
+    2300012: pile_MeshPart14
+    2300014: pile_MeshPart15
+    2300016: pile_MeshPart16
+    2300018: pile_MeshPart17
+    2300020: pile_MeshPart18
+    2300022: pile_MeshPart2
+    2300024: pile_MeshPart3
+    2300026: pile_MeshPart4
+    2300028: pile_MeshPart5
+    2300030: pile_MeshPart6
+    2300032: pile_MeshPart7
+    2300034: pile_MeshPart8
+    2300036: pile_MeshPart9
+    3300000: pile_MeshPart0
+    3300002: pile_MeshPart1
+    3300004: pile_MeshPart10
+    3300006: pile_MeshPart11
+    3300008: pile_MeshPart12
+    3300010: pile_MeshPart13
+    3300012: pile_MeshPart14
+    3300014: pile_MeshPart15
+    3300016: pile_MeshPart16
+    3300018: pile_MeshPart17
+    3300020: pile_MeshPart18
+    3300022: pile_MeshPart2
+    3300024: pile_MeshPart3
+    3300026: pile_MeshPart4
+    3300028: pile_MeshPart5
+    3300030: pile_MeshPart6
+    3300032: pile_MeshPart7
+    3300034: pile_MeshPart8
+    3300036: pile_MeshPart9
+    4300000: pile_MeshPart0
+    4300002: pile_MeshPart1
+    4300004: pile_MeshPart2
+    4300006: pile_MeshPart3
+    4300008: pile_MeshPart4
+    4300010: pile_MeshPart5
+    4300012: pile_MeshPart6
+    4300014: pile_MeshPart7
+    4300016: pile_MeshPart8
+    4300018: pile_MeshPart9
+    4300020: pile_MeshPart10
+    4300022: pile_MeshPart11
+    4300024: pile_MeshPart12
+    4300026: pile_MeshPart13
+    4300028: pile_MeshPart14
+    4300030: pile_MeshPart15
+    4300032: pile_MeshPart16
+    4300034: pile_MeshPart17
+    4300036: pile_MeshPart18
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
