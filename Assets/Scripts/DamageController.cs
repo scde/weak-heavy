@@ -10,6 +10,7 @@ public class DamageController : MonoBehaviour
 {
 
     // TODO get values from future weapon / item class
+    public bool isWaterDamage;
     public float lifetime;
     public float speed;
     public Transform followPoint;
@@ -18,7 +19,7 @@ public class DamageController : MonoBehaviour
     public float knockBackForce = 400.0f;
     public float knockBackAngle = 80.0f;
     public float damage = 20.0f;
-	// if maxHits = 0 unlimited Hits
+    // if maxHits = 0 unlimited Hits
     public int maxHits = 1;
     public LayerMask isAttackable;
 
@@ -69,37 +70,53 @@ public class DamageController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        GameObject colGObj = col.gameObject;
+        GameObject obj = col.gameObject;
 
-        if (Utilities.CheckLayerMask(isAttackable, colGObj))
+        if (Utilities.CheckLayerMask(isAttackable, obj))
         {
-            if (!timesHit.ContainsKey(colGObj))
-                timesHit.Add(colGObj, 0);
+            if (!timesHit.ContainsKey(obj))
+                timesHit.Add(obj, 0);
 
-			if (maxHits == 0) {
-				DealDamage (colGObj);
-			} else if (timesHit[colGObj] < maxHits)
+            if (maxHits == 0)
             {
-				DealDamage (colGObj);
+                DealDamage(obj);
+            }
+            else if (timesHit[obj] < maxHits)
+            {
+                DealDamage(obj);
             }
         }
     }
 
-	void DealDamage (GameObject colGObj)
-	{
-		// TODO play animations and/or emit particles
-		HealthController healthController = colGObj.GetComponent<HealthController> ();
-		if (healthController != null) {
-			healthController.TakeDamage (damage);
-			// TODO Knockback call?
-			float dirX = (colGObj.transform.position - knockBackPoint.position).normalized.x;
-			Vector2 force = Utilities.DegreeToVector2 (knockBackAngle);
-			force.x *= dirX * knockBackForce;
-			force.y *= knockBackForce;
-			// FIXME Move to FixedUpdate() or is OnTriggerStay2D called on the physics update cycle (? -> it is! should it move anyway?)
-			colGObj.GetComponent<Rigidbody2D> ().velocity = new Vector2 ();
-			colGObj.GetComponent<Rigidbody2D> ().AddForce (force);
-		}
-		timesHit [colGObj]++;
-	}
+    void DealDamage(GameObject obj)
+    {
+        // TODO play animations and/or emit particles
+        HealthController healthController = obj.GetComponent<HealthController>();
+        if (healthController != null)
+        {
+            bool damageWasDealt;
+            if (isWaterDamage)
+            {
+                damageWasDealt = healthController.TakeWaterDamage(damage);
+            }
+            else
+            {
+                healthController.TakeDamage(damage);
+                damageWasDealt = true;
+            }
+
+            if (damageWasDealt)
+            {
+                // TODO Knockback call?
+                float dirX = (obj.transform.position - knockBackPoint.position).normalized.x;
+                Vector2 force = Utilities.DegreeToVector2(knockBackAngle);
+                force.x *= dirX * knockBackForce;
+                force.y *= knockBackForce;
+                // FIXME Move to FixedUpdate() or is OnTriggerStay2D called on the physics update cycle (? -> it is! should it move anyway?)
+                obj.GetComponent<Rigidbody2D>().velocity = new Vector2();
+                obj.GetComponent<Rigidbody2D>().AddForce(force);
+            }
+        }
+        timesHit[obj]++;
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,15 @@ public class WeakController : PlayerController
         get
         {
             return instance;
+        }
+    }
+
+    private bool isWaterImmune;
+    public bool IsWaterImmune
+    {
+        get
+        {
+            return isWaterImmune;
         }
     }
 
@@ -65,10 +75,30 @@ public class WeakController : PlayerController
     {
         base.HideItemMenu();
 
-        if (itemController.HighlightedItem == ItemID.None
-            || itemController.unlockedItems[itemController.HighlightedItem])
+        switch (itemController.EquipedItem)
         {
-            // TODO activate abilities
+            case ItemID.Top:
+                canWallJump = true;
+                break;
+            case ItemID.Right:
+                isWaterImmune = true;
+                break;
+            case ItemID.Bottom:
+                break;
+            case ItemID.Left:
+                break;
+            case ItemID.None:
+                ResetAbilities();
+                break;
+            default:
+                ResetAbilities();
+                break;
         }
+    }
+
+    private void ResetAbilities()
+    {
+        canWallJump = false;
+        isWaterImmune = false;
     }
 }
