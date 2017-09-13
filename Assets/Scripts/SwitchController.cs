@@ -17,6 +17,10 @@ public class SwitchController : MonoBehaviour
     public float disableTime = 0.0f;
     public float inactivityTime = 1.0f;
     public LayerMask activationLayerMask;
+    public ItemID[] unlockWeakItems;
+    public ItemID[] unlockHeavyItems;
+    public ItemID[] lockWeakItems;
+    public ItemID[] lockHeavyItems;
 
     private Animator anim;
     private bool switchIsOn = false;
@@ -88,12 +92,7 @@ public class SwitchController : MonoBehaviour
     {
         if (switchLocked)
         {
-            Debug.Log("Switch cancled!");
             return;
-        }
-        else
-        {
-            Debug.Log("Switch");
         }
 
         StartCoroutine(InactivityTimer());
@@ -134,6 +133,29 @@ public class SwitchController : MonoBehaviour
             {
                 gObj.SetActive(true);
             }
+        }
+
+        // unlock or lock items
+        ChangeLockOnItems();
+    }
+
+    private void ChangeLockOnItems()
+    {
+        foreach (ItemID id in unlockWeakItems)
+        {
+            WeakController.Instance.ItemController.UnlockItem(id);
+        }
+        foreach (ItemID id in unlockHeavyItems)
+        {
+            HeavyController.Instance.ItemController.UnlockItem(id);
+        }
+        foreach (ItemID id in lockWeakItems)
+        {
+            WeakController.Instance.ItemController.LockItem(id);
+        }
+        foreach (ItemID id in lockHeavyItems)
+        {
+            HeavyController.Instance.ItemController.LockItem(id);
         }
     }
 

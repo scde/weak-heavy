@@ -70,7 +70,7 @@ public class ItemController : MonoBehaviour
 
         highlightedItem = ItemID.None;
         equipedItem = ItemID.None;
-        UpdateItems();
+        UpdateItemMenu();
     }
 
     public void HighlightItemButton(ItemID id)
@@ -94,7 +94,7 @@ public class ItemController : MonoBehaviour
         }
     }
 
-    private void UpdateItems()
+    private void UpdateItemMenu()
     {
         foreach (ItemID id in Enum.GetValues(typeof(ItemID)))
         {
@@ -213,6 +213,7 @@ public class ItemController : MonoBehaviour
         if (id != ItemID.None)
         {
             unlockedItems[id] = unlocked;
+            UpdateItemMenu();
         }
     }
 

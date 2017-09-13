@@ -45,6 +45,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    protected ItemController itemController;
+
+    public ItemController ItemController
+    {
+        get
+        {
+            return itemController;
+        }
+    }
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private float jumpVelocity;
@@ -58,7 +68,6 @@ public class PlayerController : MonoBehaviour
     private bool execWallJump;
     private bool lastFramePaused;
     protected MenuController itemMenu;
-    protected ItemController itemController;
     private bool isSwitchingItems;
 
     protected void Start()
