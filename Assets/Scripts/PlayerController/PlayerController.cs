@@ -55,6 +55,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private HealthController healthController;
+
+    public HealthController HealthController
+    {
+        get
+        {
+            return healthController;
+        }
+    }
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private float jumpVelocity;
@@ -79,6 +89,7 @@ public class PlayerController : MonoBehaviour
         jumpVelocity = Utilities.InitialJumpVelocity(jumpHeight);
 
         itemController = GetComponent<ItemController>();
+        healthController = GetComponent<HealthController>();
     }
 
     void FixedUpdate()
@@ -225,12 +236,19 @@ public class PlayerController : MonoBehaviour
     {
         EventManager.Instance.StartListening("Jump_" + playerId, ExecJump);
         EventManager.Instance.StartListening("ItemMenu_" + playerId, ShowItemMenu);
+        EventManager.Instance.StartListening("Hit_" + playerId, TriggerHitAnimation);
     }
 
     protected void OnDisable()
     {
         EventManager.Instance.StopListening("Jump_" + playerId, ExecJump);
         EventManager.Instance.StopListening("ItemMenu_" + playerId, ShowItemMenu);
+        EventManager.Instance.StopListening("Hit_" + playerId, TriggerHitAnimation);
+    }
+
+    private void TriggerHitAnimation()
+    {
+        anim.SetTrigger("Hit");
     }
 
     private void ShowItemMenu()

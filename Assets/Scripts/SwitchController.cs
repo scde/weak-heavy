@@ -13,6 +13,7 @@ public class SwitchController : MonoBehaviour
     public bool isTriggerSwitch = false;
     public bool isOneTimeSwitch = false;
     public bool triggerOnEmpty = false;
+    public bool isCheckpointTrigger;
     public float enableTime = 0.0f;
     public float disableTime = 0.0f;
     public float inactivityTime = 1.0f;
@@ -26,6 +27,8 @@ public class SwitchController : MonoBehaviour
     private bool switchIsOn = false;
     private bool switchLocked = false;
     private int activatorCounter;
+    private Transform respawnPointWeak;
+    private Transform respawnPointHeavy;
 
     private void Start()
     {
@@ -34,6 +37,30 @@ public class SwitchController : MonoBehaviour
         {
             Debug.LogWarning(gameObject + ": No Activation Layer Mask set. Defaulting to both player characters.");
             activationLayerMask = LayerMask.GetMask(new string[] { "Player_Weak", "Player_Heavy" });
+        }
+
+        if (isCheckpointTrigger)
+        {
+            foreach (Transform t in GetComponentsInChildren<Transform>())
+            {
+                switch (t.name)
+                {
+                    case "RespawnPointWeak":
+                        respawnPointWeak = t;
+                        break;
+                    case "RespawnPointHeavy":
+                        respawnPointHeavy = t;
+                        break;
+                }
+            }
+            if (respawnPointWeak == null)
+            {
+                Debug.LogError(gameObject + ": Respawn point for Weak is not created yet. Create an empty Child-GameObject called \"RespawnPointWeak\"");
+            }
+            if (respawnPointHeavy == null)
+            {
+                Debug.LogError(gameObject + ": Respawn point for Heavy is not created yet. Create an empty Child-GameObject called \"RespawnPointHeavy\"");
+            }
         }
     }
 
@@ -137,6 +164,13 @@ public class SwitchController : MonoBehaviour
 
         // unlock or lock items
         ChangeLockOnItems();
+
+        // set new checkpoint
+        if (isCheckpointTrigger)
+        {
+            GameManager.Instance.CheckpointWeak = respawnPointWeak;
+            GameManager.Instance.CheckpointHeavy = respawnPointHeavy;
+        }
     }
 
     private void ChangeLockOnItems()

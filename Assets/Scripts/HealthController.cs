@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,17 +12,25 @@ public class HealthController : MonoBehaviour
 
     public float maxHealth = 100.0f;
     public GameObject RespawnPoint;
-    public float RespawnTime = 1f;
     public float invincibilityTime = 0.5f;
-    float currentHealth;
-    float currentInvincibilityTime;
 
-    void Start()
+    private float currentHealth;
+    private float currentInvincibilityTime;
+
+    private void Start()
     {
         currentHealth = maxHealth;
         if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
         {
             GUIController.Instance.UpdateHealth(gameObject, currentHealth);
+        }
+    }
+
+    private void Update()
+    {
+        if (currentInvincibilityTime > 0)
+        {
+            currentInvincibilityTime -= Time.deltaTime;
         }
     }
 
@@ -40,21 +49,26 @@ public class HealthController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (!(currentInvincibilityTime > 0))
+        if (currentInvincibilityTime <= 0.0f)
         {
             currentInvincibilityTime = invincibilityTime;
             currentHealth -= damage;
-            if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
+            // TODO Display Stuff (on HUD, Avatar[red flash], etc.)
+            if (gameObject == WeakController.Instance.gameObject)
             {
+                EventManager.Instance.TriggerEvent("Hit_" + WeakController.Instance.PlayerId);
                 GUIController.Instance.UpdateHealth(gameObject, currentHealth);
             }
-            // TODO Display Stuff (on HUD, Avatar[red flash], etc.)
+            else if (gameObject == HeavyController.Instance.gameObject)
+            {
+                EventManager.Instance.TriggerEvent("Hit_" + HeavyController.Instance.PlayerId);
+                GUIController.Instance.UpdateHealth(gameObject, currentHealth);
+            }
             if (currentHealth <= 0.0f)
             {
                 if (gameObject == WeakController.Instance.gameObject || gameObject == HeavyController.Instance.gameObject)
                 {
-                    Respawn(RespawnPoint);
-                    // TODO handle Respawn/GameOver
+                    EventManager.Instance.TriggerEvent("Respawn");
                 }
                 else
                 {
@@ -64,21 +78,9 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    void Update()
+    public void ResetHealth()
     {
-        if (currentInvincibilityTime > 0)
-        {
-            currentInvincibilityTime -= Time.deltaTime;
-        }
-    }
-
-    private void Respawn(GameObject CurrentRespawnPoint)
-    {
-        StartCoroutine(Utilities.waitForRespawn(RespawnTime, gameObject));
-        transform.position = CurrentRespawnPoint.transform.position;
         currentHealth = maxHealth;
-        gameObject.SetActive(true);
         GUIController.Instance.UpdateHealth(gameObject, currentHealth);
     }
-
 }

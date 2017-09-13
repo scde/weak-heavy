@@ -35,7 +35,24 @@ public class GameManager : MonoBehaviour
     public HeavyController playerHeavyPrefab;
     public CameraControllerHorizontal cameraControllerHorizontalPrefab;
     public GUIController guiControllerPrefab;
+    public float RespawnTime = 1f;
 
+    private Transform checkpointWeak;
+    public Transform CheckpointWeak
+    {
+        set
+        {
+            checkpointWeak = value;
+        }
+    }
+    private Transform checkpointHeavy;
+    public Transform CheckpointHeavy
+    {
+        set
+        {
+            checkpointHeavy = value;
+        }
+    }
     private MenuController pauseMenu;
 
     private void Awake()
@@ -88,12 +105,14 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.StartListening("Pause", PauseGame);
         EventManager.Instance.StartListening("UnPause", UnPauseGame);
+        EventManager.Instance.StartListening("Respawn", Respawn);
     }
 
     private void OnDisable()
     {
         EventManager.Instance.StopListening("Pause", PauseGame);
         EventManager.Instance.StopListening("UnPause", UnPauseGame);
+        EventManager.Instance.StopListening("Respawn", Respawn);
     }
 
     private void Start()
@@ -144,6 +163,25 @@ public class GameManager : MonoBehaviour
             isPaused = false;
             Time.timeScale = 1.0f;
         }
+    }
+
+    private void Respawn()
+    {
+        // TODO handle Respawn/GameOver
+        StartCoroutine(WaitForRespawn());
+    }
+
+    private IEnumerator WaitForRespawn()
+    {
+        WeakController.Instance.gameObject.SetActive(false);
+        HeavyController.Instance.gameObject.SetActive(false);
+        yield return new WaitForSeconds(RespawnTime);
+        WeakController.Instance.transform.position = checkpointWeak.position;
+        HeavyController.Instance.transform.position = checkpointHeavy.position;
+        WeakController.Instance.HealthController.ResetHealth();
+        HeavyController.Instance.HealthController.ResetHealth();
+        WeakController.Instance.gameObject.SetActive(true);
+        HeavyController.Instance.gameObject.SetActive(true);
     }
 
     public void LoadScene(string sceneName)
