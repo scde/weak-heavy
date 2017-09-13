@@ -11,15 +11,8 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
 
-    //[HideInInspector]
-    //public GameObject[] weapons;
     public Transform[] attacks;
     public DamageController[] damages;
-    // TODO move to item/weapon script and send (ref) to damage controller
-    //public float damage = 20.0f;
-    //public float knockBack;
-    //public float knockBackRadius;
-    //public float meleeRate;
     public float attackCooldown = 0.1f;
     public LayerMask isAttackable;
 
@@ -34,7 +27,14 @@ public class AttackController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         itemController = GetComponent<ItemController>();
-        SwitchWeapon(itemController.EquipedItem);
+        if (itemController != null)
+        {
+            SwitchWeapon(itemController.EquipedItem);
+        }
+        else
+        {
+            curAttack = 0;
+        }
 
         if (gameObject.CompareTag("Player"))
         {
@@ -57,22 +57,10 @@ public class AttackController : MonoBehaviour
         {
             curAttack = (int)newWeapon;
         }
-        //foreach (GameObject weapon in weapons)
-        //{
-        //    weapon.SetActive(false);
-        //}
-        //if (0 < curWeapon && curWeapon <= weapons.Length)
-        //{
-        //    weapons[curWeapon - 1].SetActive(true);
-        //}
-        //anim.SetInteger("Weapon", curWeapon);
     }
 
     void Update()
     {
-        // TODO move to its own script (item, weapon switcher/handler)
-        //SwitchWeapon(curWeapon);
-
         if (curAttackTime > 0.0f)
         {
             curAttackTime -= Time.deltaTime;
@@ -80,7 +68,6 @@ public class AttackController : MonoBehaviour
         else if (attacking)
         {
             attacking = false;
-            //anim.SetBool("Attacking", attacking);
             curAttackTime = 0.0f;
         }
     }
@@ -93,7 +80,6 @@ public class AttackController : MonoBehaviour
             //Play Animation
             // maybe use attackCooldown as value to determine animation/attack speed
             anim.SetTrigger("Attack");
-            //anim.SetBool("Attacking", attacking);
             curAttackTime = attackCooldown;
 
             Instantiate(damages[curAttack], attacks[curAttack].position, Quaternion.identity);
