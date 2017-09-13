@@ -17,6 +17,7 @@ public class WeakController : PlayerController
     }
 
     private bool isWaterImmune;
+
     public bool IsWaterImmune
     {
         get
@@ -24,6 +25,19 @@ public class WeakController : PlayerController
             return isWaterImmune;
         }
     }
+
+    private bool isAirImmune;
+
+    public bool IsAirImmune
+    {
+        get
+        {
+            return isAirImmune;
+        }
+    }
+    public float maxSpeedMultiplier = 1.5f;
+
+    private float maxSpeedReset;
 
     private void Awake()
     {
@@ -69,12 +83,14 @@ public class WeakController : PlayerController
                     break;
             }
         }
+        maxSpeedReset = maxSpeed;
     }
 
     private new void HideItemMenu()
     {
         base.HideItemMenu();
 
+        ResetAbilities();
         switch (itemController.EquipedItem)
         {
             case ItemID.Top:
@@ -84,8 +100,10 @@ public class WeakController : PlayerController
                 isWaterImmune = true;
                 break;
             case ItemID.Bottom:
+                isAirImmune = true;
                 break;
             case ItemID.Left:
+                maxSpeed = maxSpeedReset * maxSpeedMultiplier;
                 break;
             case ItemID.None:
                 ResetAbilities();
@@ -100,5 +118,7 @@ public class WeakController : PlayerController
     {
         canWallJump = false;
         isWaterImmune = false;
+        isAirImmune = false;
+        maxSpeed = maxSpeedReset;
     }
 }
