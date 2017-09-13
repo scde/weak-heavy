@@ -12,7 +12,7 @@ public class AttackController : MonoBehaviour
 {
 
     //[HideInInspector]
-    public GameObject[] weapons;
+    //public GameObject[] weapons;
     public Transform[] attacks;
     public DamageController[] damages;
     // TODO move to item/weapon script and send (ref) to damage controller
@@ -23,15 +23,18 @@ public class AttackController : MonoBehaviour
     public float attackCooldown = 0.1f;
     public LayerMask isAttackable;
 
-    int curWeapon;
-    float curAttackTime;
-    bool attacking;
+    private int curAttack;
+    private float curAttackTime;
+    private bool attacking;
+    private ItemController itemController;
 
     Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        itemController = GetComponent<ItemController>();
+        SwitchWeapon(itemController.EquipedItem);
 
         if (gameObject.CompareTag("Player"))
         {
@@ -41,22 +44,28 @@ public class AttackController : MonoBehaviour
         {
             isAttackable = LayerMask.GetMask(new string[] { "Player_Weak", "Player_Heavy" });
         }
-
-        SwitchWeapon(curWeapon);
     }
 
-    public void SwitchWeapon(int newWeapon)
+    public void SwitchWeapon(ItemID newWeapon)
     {
-        curWeapon = newWeapon;
-        foreach (GameObject weapon in weapons)
+        // if Armor is equiped use claw attack
+        if (newWeapon == ItemID.Left)
         {
-            weapon.SetActive(false);
+            curAttack = (int)ItemID.None;
         }
-        if (0 < curWeapon && curWeapon <= weapons.Length)
+        else
         {
-            weapons[curWeapon - 1].SetActive(true);
+            curAttack = (int)newWeapon;
         }
-        anim.SetInteger("Weapon", curWeapon);
+        //foreach (GameObject weapon in weapons)
+        //{
+        //    weapon.SetActive(false);
+        //}
+        //if (0 < curWeapon && curWeapon <= weapons.Length)
+        //{
+        //    weapons[curWeapon - 1].SetActive(true);
+        //}
+        //anim.SetInteger("Weapon", curWeapon);
     }
 
     void Update()
@@ -87,7 +96,7 @@ public class AttackController : MonoBehaviour
             //anim.SetBool("Attacking", attacking);
             curAttackTime = attackCooldown;
 
-            Instantiate(damages[curWeapon], attacks[curWeapon].position, Quaternion.identity);
+            Instantiate(damages[curAttack], attacks[curAttack].position, Quaternion.identity);
         }
     }
 }

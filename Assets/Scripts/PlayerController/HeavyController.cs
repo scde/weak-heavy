@@ -34,30 +34,58 @@ public class HeavyController : PlayerController
         }
     }
 
-    new void Start()
+    private new void OnEnable()
+    {
+        base.OnEnable();
+
+        EventManager.Instance.StartListening("ItemMenuHide_" + playerId, HideItemMenu);
+    }
+
+    private new void OnDisable()
+    {
+        base.OnDisable();
+
+        EventManager.Instance.StopListening("ItemMenuHide_" + playerId, HideItemMenu);
+    }
+
+    private new void Start()
     {
         base.Start();
 
         attackController = GetComponent<AttackController>();
+
+        foreach (MenuController menu in GetComponentsInChildren<MenuController>())
+        {
+            switch (menu.name)
+            {
+                case "ItemMenuHeavy":
+                    itemMenu = menu;
+                    break;
+            }
+        }
     }
 
-    new void Update()
+    private new void Update()
     {
         base.Update();
 
-        if (Input.GetButtonDown("Fire1_" + playerId))
+        if (!GameManager.Instance.IsPaused)
         {
-            attackController.Attack();
+            if (Input.GetButtonDown("Fire1_" + playerId))
+            {
+                attackController.Attack();
+            }
         }
+    }
 
-        // FIXME testcode
-        if (Input.GetKeyDown("1"))
-            attackController.SwitchWeapon(0);
-        if (Input.GetKeyDown("2"))
-            attackController.SwitchWeapon(1);
-        if (Input.GetKeyDown("3"))
-            attackController.SwitchWeapon(2);
-        if (Input.GetKeyDown("4"))
-            attackController.SwitchWeapon(3);
+    private new void HideItemMenu()
+    {
+        base.HideItemMenu();
+
+        if (itemController.HighlightedItem == ItemID.None
+            || itemController.unlockedItems[itemController.HighlightedItem])
+        {
+            attackController.SwitchWeapon(itemController.EquipedItem);
+        }
     }
 }

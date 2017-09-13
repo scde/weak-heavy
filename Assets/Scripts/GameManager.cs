@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Cancel_0") || Input.GetButtonDown("Cancel_1"))
             {
-                GUIController.Instance.HideMenu();
+                GUIController.Instance.HideMenu(pauseMenu);
             }
         }
     }

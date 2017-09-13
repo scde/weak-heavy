@@ -31,4 +31,44 @@ public class WeakController : PlayerController
             Destroy(gameObject);
         }
     }
+
+    private new void OnEnable()
+    {
+        base.OnEnable();
+
+        EventManager.Instance.StartListening("ItemMenuHide_" + playerId, HideItemMenu);
+    }
+
+    private new void OnDisable()
+    {
+        base.OnDisable();
+
+        EventManager.Instance.StopListening("ItemMenuHide_" + playerId, HideItemMenu);
+    }
+
+    private new void Start()
+    {
+        base.Start();
+
+        foreach (MenuController menu in GetComponentsInChildren<MenuController>())
+        {
+            switch (menu.name)
+            {
+                case "ItemMenuWeak":
+                    itemMenu = menu;
+                    break;
+            }
+        }
+    }
+
+    private new void HideItemMenu()
+    {
+        base.HideItemMenu();
+
+        if (itemController.HighlightedItem == ItemID.None
+            || itemController.unlockedItems[itemController.HighlightedItem])
+        {
+            // TODO activate abilities
+        }
+    }
 }

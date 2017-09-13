@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     }
 
     public bool pausesGame;
+    public bool isUnique;
     public GameObject firstSelected;
 
     private Animator anim;

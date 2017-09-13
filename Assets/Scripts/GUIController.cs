@@ -47,7 +47,8 @@ public class GUIController : MonoBehaviour
 
     public EventSystem eventSystemPrefab;
 
-    private MenuController currentMenu;
+    private MenuController currentUniqueMenu;
+    private List<MenuController> currentMenus;
     private Text coinText;
     private Text weakHealthText;
     private Text heavyHealthText;
@@ -102,6 +103,8 @@ public class GUIController : MonoBehaviour
                     break;
             }
         }
+
+        currentMenus = new List<MenuController>();
     }
 
     public void ShowMenu(MenuController menu)
@@ -111,28 +114,47 @@ public class GUIController : MonoBehaviour
             EventManager.Instance.TriggerEvent("Pause");
         }
 
-        if (currentMenu != null)
+        if (menu.isUnique)
         {
-            currentMenu.IsShown = false;
-        }
+            if (currentUniqueMenu != null)
+            {
+                currentUniqueMenu.IsShown = false;
+            }
 
-        currentMenu = menu;
-        currentMenu.IsShown = true;
-        uiShown = true;
+            currentUniqueMenu = menu;
+            currentUniqueMenu.IsShown = true;
+            uiShown = true;
+        }
+        else
+        {
+            if (!currentMenus.Contains(menu))
+            {
+                currentMenus.Add(menu);
+            }
+            menu.IsShown = true;
+        }
     }
 
-    public void HideMenu()
+    public void HideMenu(MenuController menu)
     {
         if (GameManager.Instance.IsPaused)
         {
             EventManager.Instance.TriggerEvent("UnPause");
         }
 
-        if (currentMenu != null)
+        if (menu.isUnique)
         {
-            currentMenu.IsShown = false;
+            if (currentUniqueMenu != null)
+            {
+                currentUniqueMenu.IsShown = false;
+            }
+            uiShown = false;
         }
-        uiShown = false;
+        else
+        {
+            currentMenus.Remove(menu);
+            menu.IsShown = false;
+        }
     }
 
     public void UpdateHealth(GameObject player, float health)

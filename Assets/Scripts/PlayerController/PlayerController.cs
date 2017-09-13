@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,6 +57,9 @@ public class PlayerController : MonoBehaviour
     private bool execJump;
     private bool execWallJump;
     private bool lastFramePaused;
+    protected MenuController itemMenu;
+    protected ItemController itemController;
+    private bool isSwitchingItems;
 
     protected void Start()
     {
@@ -64,12 +68,18 @@ public class PlayerController : MonoBehaviour
         facingRight = true;
 
         jumpVelocity = Utilities.InitialJumpVelocity(jumpHeight);
+
+        itemController = GetComponent<ItemController>();
     }
 
     void FixedUpdate()
     {
         Vector2 vel = new Vector2(rb2d.velocity.x, rb2d.velocity.y);
         float move = Input.GetAxis("Horizontal_" + playerId);
+        if (isSwitchingItems)
+        {
+            move = 0.0f;
+        }
 
         if (grounded)
         {
@@ -149,29 +159,87 @@ public class PlayerController : MonoBehaviour
         // unpausing with the Action-Key
         if (!GameManager.Instance.IsPaused && !lastFramePaused)
         {
-            // TODO weapon/item switching (return out of all other input)
-            // TODO action event for switches/buttons
-            if (Input.GetButtonDown("Jump_" + playerId))
+            if (isSwitchingItems)
             {
-                EventManager.Instance.TriggerEvent("Jump_" + playerId);
+                float xAxis = Input.GetAxis("Horizontal_" + playerId);
+                float yAxis = Input.GetAxis("Vertical_" + playerId);
+                // TODO better select behaviour
+                if (yAxis > 0.0f)
+                {
+                    itemController.HighlightItemButton(ItemID.Top);
+                }
+                else if (xAxis > 0.0f)
+                {
+                    itemController.HighlightItemButton(ItemID.Right);
+                }
+                else if (yAxis < 0.0f)
+                {
+                    itemController.HighlightItemButton(ItemID.Bottom);
+                }
+                else if (xAxis < 0.0f)
+                {
+                    itemController.HighlightItemButton(ItemID.Left);
+                }
+                else
+                {
+                    itemController.HighlightItemButton(ItemID.None);
+                }
+            }
+            else
+            {
+                // TODO weapon/item switching (return out of all other input)
+                // TODO action event for switches/buttons
+                if (Input.GetButtonDown("Jump_" + playerId))
+                {
+                    EventManager.Instance.TriggerEvent("Jump_" + playerId);
+                }
+
+                if (Input.GetButtonDown("Action_" + playerId))
+                {
+                    EventManager.Instance.TriggerEvent("Action_" + playerId);
+                }
             }
 
-            if (Input.GetButtonDown("Action_" + playerId))
+            if (Input.GetButtonDown("ItemMenu_" + playerId))
             {
-                EventManager.Instance.TriggerEvent("Action_" + playerId);
+                EventManager.Instance.TriggerEvent("ItemMenu_" + playerId);
+            }
+            if (Input.GetButtonUp("ItemMenu_" + playerId))
+            {
+                EventManager.Instance.TriggerEvent("ItemMenuHide_" + playerId);
             }
         }
         lastFramePaused = GameManager.Instance.IsPaused;
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         EventManager.Instance.StartListening("Jump_" + playerId, ExecJump);
+        EventManager.Instance.StartListening("ItemMenu_" + playerId, ShowItemMenu);
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         EventManager.Instance.StopListening("Jump_" + playerId, ExecJump);
+        EventManager.Instance.StopListening("ItemMenu_" + playerId, ShowItemMenu);
+    }
+
+    private void ShowItemMenu()
+    {
+        isSwitchingItems = true;
+        GUIController.Instance.ShowMenu(itemMenu);
+    }
+
+    protected void HideItemMenu()
+    {
+        isSwitchingItems = false;
+        itemController.SwitchItem();
+        GUIController.Instance.HideMenu(itemMenu);
+        if (itemController.HighlightedItem == ItemID.None
+            || itemController.unlockedItems[itemController.HighlightedItem])
+        {
+            anim.SetInteger("Item", (int)itemController.EquipedItem);
+        }
     }
 
     private void ExecJump()
@@ -192,10 +260,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetWallSliding(bool sliding, int direction)
     {
-        wallSliding = sliding;
+        wallSliding = sliding && canWallJump;
         wallDirX = direction;
         anim.SetBool("WallSliding", wallSliding);
-        if (wallSliding && canWallJump)
+        if (wallSliding)
         {
             doubleJump = true;
         }
