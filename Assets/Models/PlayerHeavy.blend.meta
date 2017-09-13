@@ -37,6 +37,7 @@ ModelImporter:
     100058: Crossbowbone
     100060: Swordbone
     100062: Crossbow
+    100064: Lancebone
     400000: Armature
     400002: Fu__L
     400004: Fu__R
@@ -69,6 +70,7 @@ ModelImporter:
     400058: Crossbowbone
     400060: Swordbone
     400062: Crossbow
+    400064: Lancebone
     2300000: Armbrust
     2300002: lance
     2300004: Pfeil
