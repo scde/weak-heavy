@@ -20,7 +20,6 @@ public class FollowPath : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator anim;
 
-    // Use this for initialization
     void Start()
     {
         ScissorTransform = GetComponentInParent<Transform>();
@@ -35,8 +34,6 @@ public class FollowPath : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //print (other.gameObject.name);
-        //print (other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
             playerIsInRange = true;
@@ -65,13 +62,11 @@ public class FollowPath : MonoBehaviour
     {
         if (playerIsInRange)
         {
-            //print ("----------------------------------PLAYER IN RANGE!!!!-----------------------------------");
             moveToPlayer();
         }
         else
         {
             MoveToNextWaypoint();
-            //print ("-----------------------------------NOT IN RANGE!!!!-----------------------------------------");
         }
 
         if (moveTypes == moveType.UsePhysics)

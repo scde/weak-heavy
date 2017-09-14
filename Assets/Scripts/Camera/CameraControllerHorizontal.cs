@@ -49,8 +49,7 @@ public class CameraControllerHorizontal : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //CameraPos.x + 
+		
     void FixCameraResolution()
     {
         transform.position = new Vector3(ADAPT_POSITION * (defaultWidth - Camera.main.orthographicSize * Camera.main.aspect), CameraPos.y, CameraPos.z);
