@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class turnToPlayer : MonoBehaviour {
 
+	public bool facesRight = false;
+	private PlayerController[] players;
 
-	public GameObject[] players;
+	void Start(){
+		players = FindObjectsOfType<PlayerController> ();
+	}
 
 	void FixedUpdate() {
-		GameObject nextPlayer = findNearestPlayer ();
+		if (facesRight) {
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+		} else {
+			transform.rotation = Quaternion.Euler (0, 180, 0);
+		}
+		PlayerController nextPlayer = findNearestPlayer ();
 		print ("nextPlayer: " + nextPlayer.name);
-		lookAtTarget (nextPlayer.transform);
+		//lookAtTarget (nextPlayer.transform);
 		}
 
-	GameObject findNearestPlayer ()
+	PlayerController findNearestPlayer ()
 	{
-		GameObject nextPlayer;
+		PlayerController nextPlayer;
 		Vector3 dirPlayerOne = players [0].transform.position - transform.position;
 		Vector3 dirPlayerTwo = players [1].transform.position - transform.position;
 		Vector3 dirPlayerOneNorm = dirPlayerOne.normalized;
@@ -33,6 +42,16 @@ public class turnToPlayer : MonoBehaviour {
 	void lookAtTarget(Transform target){
 		Vector3 dir = target.position - transform.position;
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle -180, Vector3.forward);
+
+		transform.rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+
+		if (Mathf.Abs(angle) < 90)
+		{
+			transform.parent.transform.rotation = Quaternion.Euler(0, 180, 0);
+		}
+		else
+		{
+			transform.parent.transform.rotation = Quaternion.Euler(0, 0, 0);
+		}
 	}
 }
