@@ -330,9 +330,7 @@ public class PlayerController : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
-        // FIXME does not play well with bear
-        // flip mechanism: http://answers.unity3d.com/answers/1060296/view.html
-        playerModel.localEulerAngles = playerModel.eulerAngles + new Vector3(0.0f, 180.0f, -2 * playerModel.eulerAngles.z);
+		transform.localEulerAngles = transform.eulerAngles + new Vector3(0.0f, 180.0f, -2 * transform.eulerAngles.z);
     }
 
     private void OnDrawGizmos()
