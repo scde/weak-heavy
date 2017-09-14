@@ -28,7 +28,6 @@ public class EventManager : MonoBehaviour
         {
             instance = this;
             instance.Init();
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

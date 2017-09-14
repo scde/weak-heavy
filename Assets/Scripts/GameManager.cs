@@ -63,12 +63,16 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // TODO between level saving
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+
+        //// SceneManager hook
+        //SceneManager.sceneLoaded += OnSceneLoaded;
 
         // Event Manager
         if (EventManager.Instance == null)
@@ -101,6 +105,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    // Unpauses in case we switched from PauseMenu to another scene
+    //    // and gets new pauseMenu reference
+    //    Start();
+    //}
+
     private void OnEnable()
     {
         EventManager.Instance.StartListening("Pause", PauseGame);
@@ -117,14 +128,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        isPaused = false;
-        foreach (MenuController menu in GUIController.Instance.Menus)
+        UnPauseGame();
+        if (GUIController.Instance != null)
         {
-            switch (menu.name)
+            foreach (MenuController menu in GUIController.Instance.Menus)
             {
-                case "PauseMenu":
-                    pauseMenu = menu;
-                    break;
+                switch (menu.name)
+                {
+                    case "PauseMenu":
+                        pauseMenu = menu;
+                        break;
+                }
             }
         }
     }
@@ -167,7 +181,7 @@ public class GameManager : MonoBehaviour
 
     private void Respawn()
     {
-        // TODO handle Respawn/GameOver
+        // TODO handle Respawn/GameOver there is currently no GameOver
         StartCoroutine(WaitForRespawn());
     }
 
@@ -191,7 +205,18 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        // TODO save game state
+        // TODO save game progress
         Application.Quit();
     }
+}
+
+public enum SceneName
+{
+    None,
+    StartScreen,
+    SelectLevelScreen,
+    Tutorial,
+    Level1Sabi,
+    Level2Susi,
+    Level3Jana
 }

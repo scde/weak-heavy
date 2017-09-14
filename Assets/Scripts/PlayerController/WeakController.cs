@@ -48,7 +48,7 @@ public class WeakController : PlayerController
         {
             instance = this;
             playerId = 0;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

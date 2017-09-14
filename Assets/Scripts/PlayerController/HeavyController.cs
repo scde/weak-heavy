@@ -26,7 +26,7 @@ public class HeavyController : PlayerController
         {
             instance = this;
             playerId = 1;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
