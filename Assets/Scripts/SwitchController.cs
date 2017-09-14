@@ -14,6 +14,7 @@ public class SwitchController : MonoBehaviour
     public bool isOneTimeSwitch = false;
     public bool triggerOnEmpty = false;
     public bool isCheckpointTrigger;
+    public SceneName loadLevel;
     public float enableTime = 0.0f;
     public float disableTime = 0.0f;
     public float inactivityTime = 1.0f;
@@ -29,6 +30,8 @@ public class SwitchController : MonoBehaviour
     private int activatorCounter;
     private Transform respawnPointWeak;
     private Transform respawnPointHeavy;
+    private bool weakInTrigger;
+    private bool heavyInTrigger;
 
     private void Start()
     {
@@ -66,6 +69,15 @@ public class SwitchController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject == WeakController.Instance.gameObject)
+        {
+            weakInTrigger = true;
+        }
+        if (col.gameObject == HeavyController.Instance.gameObject)
+        {
+            heavyInTrigger = true;
+        }
+
         if (Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
         {
             if (activatorCounter == 0 && triggerOnEmpty)
@@ -94,6 +106,15 @@ public class SwitchController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D col)
     {
+        if (col.gameObject == WeakController.Instance.gameObject)
+        {
+            weakInTrigger = true;
+        }
+        if (col.gameObject == HeavyController.Instance.gameObject)
+        {
+            heavyInTrigger = true;
+        }
+
         if (Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
         {
             activatorCounter--;
@@ -170,6 +191,12 @@ public class SwitchController : MonoBehaviour
         {
             GameManager.Instance.CheckpointWeak = respawnPointWeak;
             GameManager.Instance.CheckpointHeavy = respawnPointHeavy;
+        }
+
+        // Load Level
+        if (loadLevel != SceneName.None && weakInTrigger && heavyInTrigger)
+        {
+            GameManager.Instance.LoadScene(loadLevel.ToString());
         }
     }
 
