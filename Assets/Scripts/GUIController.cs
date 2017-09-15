@@ -107,6 +107,18 @@ public class GUIController : MonoBehaviour
         currentMenus = new List<MenuController>();
     }
 
+    // Neccessary for Buttons (children) to load scenes and retain those settings in prefab
+    public void LoadScene(string sceneName)
+    {
+        GameManager.Instance.LoadScene(sceneName);
+    }
+
+    // Neccessary for Buttons (children) to quit the game and retain those settings in prefab
+    public void QuitGame()
+    {
+        GameManager.Instance.QuitGame();
+    }
+
     public void ShowMenu(MenuController menu)
     {
         if (!GameManager.Instance.IsPaused && menu.pausesGame)
