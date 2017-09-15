@@ -108,11 +108,11 @@ public class SwitchController : MonoBehaviour
     {
         if (col.gameObject == WeakController.Instance.gameObject)
         {
-            weakInTrigger = true;
+            weakInTrigger = false;
         }
         if (col.gameObject == HeavyController.Instance.gameObject)
         {
-            heavyInTrigger = true;
+            heavyInTrigger = false;
         }
 
         if (Utilities.CheckLayerMask(activationLayerMask, col.gameObject))
