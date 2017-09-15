@@ -123,6 +123,7 @@ ModelImporter:
     13700004: sword
     13700006: Pfeil
     13700008: Crossbow
+    13700010: lance
   materials:
     importMaterials: 1
     materialName: 0
