@@ -128,7 +128,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UnPauseGame();
         if (GUIController.Instance != null)
         {
             foreach (MenuController menu in GUIController.Instance.Menus)
@@ -200,6 +199,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        UnPauseGame();
         SceneManager.LoadScene(sceneName);
     }
 
