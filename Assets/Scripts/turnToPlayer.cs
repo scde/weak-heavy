@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class turnToPlayer : MonoBehaviour {
 
-	public bool facesRight = false;
+	public bool facesLeft = true;
 	private PlayerController[] players;
 
 	void Start(){
@@ -12,13 +12,9 @@ public class turnToPlayer : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (facesRight) {
-			transform.rotation = Quaternion.Euler (0, 0, 0);
-		} else {
-			transform.rotation = Quaternion.Euler (0, 180, 0);
-		}
+		transform.rotation = Quaternion.Euler (0, 0, 0);
+		
 		PlayerController nextPlayer = findNearestPlayer ();
-		print ("nextPlayer: " + nextPlayer.name);
 		//lookAtTarget (nextPlayer.transform);
 		}
 
