@@ -57,16 +57,16 @@ public class DamageController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // TODO object pooling (instead of instantiate-destroy-cycle):
-        // https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
-        //if (lifetime <= 0)
-        //{
-        //gameObject.SetActive(false);
-        //}
-        //lifetime -= Time.deltaTime;
-    }
+    //void Update()
+    //{
+    // TODO object pooling (instead of instantiate-destroy-cycle):
+    // https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
+    //if (lifetime <= 0)
+    //{
+    //gameObject.SetActive(false);
+    //}
+    //lifetime -= Time.deltaTime;
+    //}
 
     void OnTriggerStay2D(Collider2D col)
     {
