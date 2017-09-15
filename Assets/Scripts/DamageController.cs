@@ -8,23 +8,20 @@ using UnityEngine;
 // - Disables itself after lifetime
 public class DamageController : MonoBehaviour
 {
+
+    // TODO get values from future weapon / item class
     public bool isWaterDamage;
     public float lifetime;
     public float speed;
     public Transform followPoint;
     public Transform knockBackPoint;
+    // TODO use units instead of force
     public float knockBackForce = 400.0f;
     public float knockBackAngle = 80.0f;
     public float damage = 20.0f;
     // if maxHits = 0 unlimited Hits
     public int maxHits = 1;
     public LayerMask isAttackable;
-
-	public bool HeavyIsLauncher = false;
-
-	private HeavyController HeavyLauncher;
-	private turnToPlayer EnemyLauncher;
-	private Transform LauncherTransform;
 
     Dictionary<GameObject, int> timesHit;
     Rigidbody2D rb2d;
@@ -41,54 +38,35 @@ public class DamageController : MonoBehaviour
 
     void Start()
     {
-
-		if (lifetime > 0)
-			Destroy(gameObject, lifetime);
-
-		if (HeavyIsLauncher) {
-			HeavyLauncher = FindObjectOfType<HeavyController> ();
-		} else {
-			EnemyLauncher = FindObjectOfType<turnToPlayer> ();
-		}
-
-
-		if (HeavyLauncher != null) {
-			LauncherTransform = HeavyLauncher.transform;
-		} else if (EnemyLauncher != null) {
-			LauncherTransform = EnemyLauncher.transform;
-		}
-
-		if (LauncherTransform.rotation.y < 0) {
-			transform.rotation = Quaternion.Euler (0, 0, 180);
-		} else {
-			transform.rotation = Quaternion.Euler (0, 0, 0);
-		}
-
         if (knockBackPoint == null)
             knockBackPoint = transform;
 
         rb2d = GetComponent<Rigidbody2D>();
+
+        if (lifetime > 0)
+            Destroy(gameObject, lifetime);
     }
 
     void FixedUpdate()
     {
-		if (speed != 0)
+        if (speed > 0)
         {
-			rb2d.velocity = transform.right * speed;
+            // TODO FIXME magnitude and direction
+            rb2d.AddForce(new Vector2(speed, 0.0f));
+            speed = 0;
         }
     }
 
-	void Update()
-	{
-		// TODO object pooling (instead of instantiate-destroy-cycle):
-		// https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
-		if (lifetime <= 0)
-		{
-		gameObject.SetActive(false);
-		}
-		lifetime -= Time.deltaTime;
-	}
-
+    void Update()
+    {
+        // TODO object pooling (instead of instantiate-destroy-cycle):
+        // https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
+        //if (lifetime <= 0)
+        //{
+        //gameObject.SetActive(false);
+        //}
+        //lifetime -= Time.deltaTime;
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {
