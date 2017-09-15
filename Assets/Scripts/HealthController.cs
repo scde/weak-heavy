@@ -11,7 +11,6 @@ public class HealthController : MonoBehaviour
 {
 
     public float maxHealth = 100.0f;
-    public GameObject RespawnPoint;
     public float invincibilityTime = 0.5f;
 
     private float currentHealth;
@@ -38,13 +37,13 @@ public class HealthController : MonoBehaviour
     {
         if (gameObject == WeakController.Instance.gameObject)
         {
-            if (!WeakController.Instance.IsWaterImmune)
+            if (WeakController.Instance.IsWaterImmune)
             {
-                TakeDamage(damage);
-                return true;
+                return false;
             }
         }
-        return false;
+        TakeDamage(damage);
+        return true;
     }
 
     public void TakeDamage(float damage)
