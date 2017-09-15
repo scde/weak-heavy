@@ -41,6 +41,10 @@ public class DamageController : MonoBehaviour
 
     void Start()
     {
+
+		if (lifetime > 0)
+			Destroy(gameObject, lifetime);
+
 		if (HeavyIsLauncher) {
 			HeavyLauncher = FindObjectOfType<HeavyController> ();
 		} else {
@@ -64,9 +68,6 @@ public class DamageController : MonoBehaviour
             knockBackPoint = transform;
 
         rb2d = GetComponent<Rigidbody2D>();
-
-        if (lifetime > 0)
-            Destroy(gameObject, lifetime);
     }
 
     void FixedUpdate()
@@ -76,6 +77,18 @@ public class DamageController : MonoBehaviour
 			rb2d.velocity = transform.right * speed;
         }
     }
+
+	void Update()
+	{
+		// TODO object pooling (instead of instantiate-destroy-cycle):
+		// https://unity3d.com/learn/tutorials/topics/scripting/object-pooling?playlist=17117
+		if (lifetime <= 0)
+		{
+		gameObject.SetActive(false);
+		}
+		lifetime -= Time.deltaTime;
+	}
+
 
     void OnTriggerStay2D(Collider2D col)
     {
