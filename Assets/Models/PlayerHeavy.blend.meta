@@ -1462,8 +1462,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bear_Attack_Lance
       takeName: Bear_Attack_Lance
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 7
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
